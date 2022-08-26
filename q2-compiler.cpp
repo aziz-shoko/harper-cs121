@@ -11,7 +11,7 @@ using namespace std;                                                  // Allows 
 
 int main() {                                                          // Start of program
     cout << "Hello World!! \nMy name is Azizbek Shokosimov";          // Outsputs text in the quotes with cout <<
-    printf("\nThis is Q2 and I am using Visual Studio Code on Mac");  // Outsputs text in the quotes with prinf 
+    printf("\nThis is Q2 and I am using Visual Studio Code on Mac");  // Outsputs text in the quotes with printf 
     return 0;                                                         // Ends the program
 }
 
