@@ -34,3 +34,5 @@ int main() {                                                                    
     
     return 0;                                                                                       // End program
 }
+
+// run g++ -o <compiler-name>  <filename>.cpp to compile the code
