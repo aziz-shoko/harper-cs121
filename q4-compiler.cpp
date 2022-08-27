@@ -30,7 +30,7 @@ csc121
 using namespace std;                       // Setting namespace to avoid std::
 
 int main() {             
-    cout << RED << "\n\tName: Azizbek Shokosimov";                                                         // Output Name in new line and tabbed format
+    cout << RED << "\n\tName: Azizbek Shokosimov" << RESET;                                         // Output Name in new line in red and tabbed format
     cout << "\n\tDate: 08/26/2022";                                                                 // Output Date in new line with tab
     cout << "\n\tLab: Lab 1";                                                                       // Output Lab Number in new line with tab
     cout << "\n\tTitle: Discussion Board Q4";                                                       // Output Title in new line with tab
