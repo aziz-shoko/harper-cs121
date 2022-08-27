@@ -23,4 +23,4 @@ int main() {                                                                    
     cout << setw(20) << "\n\tsetw(n)" << setw(100)                                                  // Output setw(n) and description within the set width
     << "Stands for set width and it sets the character width for your outputed text\n";
     return 0;                                                                                       // Exit Function
-}               
+}
