@@ -7,6 +7,7 @@ csc121
 */
 
 //the following are UBUNTU/LINUX, and MacOS ONLY terminal color codes.
+//visit this for more color codes: https://stackoverflow.com/questions/9158150/colored-output-in-c
 #define RESET       "\033[0m"              /* End Color */
 #define BOLDMAGENTA "\033[1m\033[35m"      /* Bold Magenta */
 #define BOLDRED     "\033[1m\033[31m"      /* Bold Red */
