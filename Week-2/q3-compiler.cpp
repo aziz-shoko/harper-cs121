@@ -27,52 +27,52 @@ int main() {
     cout << "\n\n\nPlease enter base followed by height: ";         // Outputs the text in quote
     cin >> base >> height;                                          // Stores user values in base and height variable
     
-    if ( base >= 0 && height >= 0 ) {                                           // Checks the condition for quadrant 1
+    if ( base >= 0 && height >= 0 ) {                                                   // Checks the condition for quadrant 1
 
-        hypotenuse = sqrt(pow(base, 2) + pow(height, 2));                       // Calculates the hypotenuse 
-        cout << BOLDRED << "\nHypotenuse: " << hypotenuse << "\n\n";            // Outputs the hypotenuse answer in color Red
+        hypotenuse = sqrt(pow(base, 2) + pow(height, 2));                               // Calculates the hypotenuse 
+        cout << BOLDRED << "\nHypotenuse: " << hypotenuse << "\n\n";                    // Outputs the hypotenuse answer in color Red
     
-        beta = fabs(atan(height / base));                                       // Calculates beta in radians
-        betaDeg = beta * (180 / M_PI );                                         // Converts beta to degrees
-        cout << "Beta: " << betaDeg << " degrees\n";                            // Outputs beta answer
+        beta = fabs(atan(height / base));                                               // Calculates beta in radians
+        betaDeg = beta * (180 / M_PI );                                                 // Converts beta to degrees
+        cout << "Beta (angle between base and height): " << betaDeg << " degrees\n";    // Outputs beta answer
 
-        theta = betaDeg;                                                        // Calculates theta, the angle around the unit circle staring at 0
-        cout << "\ntheta: " << theta << " degrees" << RESET;                     // Outputs theta answer
+        theta = betaDeg;                                                                // Calculates theta, the angle around the unit circle staring at 0
+        cout << "\ntheta: " << theta << " degrees" << RESET;                            // Outputs theta answer
         
-    } else if (base < 0 && height >= 0) {                                       // Checks the condition for quadrant 2
+    } else if (base < 0 && height >= 0) {                                               // Checks the condition for quadrant 2
 
-        hypotenuse = sqrt(pow(base, 2) + pow(height, 2));                       // Calculates the hypotenuse 
-        cout << BOLDRED << "\nHypotenuse: " << hypotenuse << "\n\n";            // Outputs the hypotenuse answer in color Red
+        hypotenuse = sqrt(pow(base, 2) + pow(height, 2));                               // Calculates the hypotenuse 
+        cout << BOLDRED << "\nHypotenuse: " << hypotenuse << "\n\n";                    // Outputs the hypotenuse answer in color Red
     
-        beta = fabs(atan(height / base));                                       // Calculates beta in radians
-        betaDeg = beta * (180 / M_PI );                                         // Converts beta to degrees
-        cout << "Beta: " << betaDeg << " degrees\n";                            // Outputs beta answer
+        beta = fabs(atan(height / base));                                               // Calculates beta in radians
+        betaDeg = beta * (180 / M_PI );                                                 // Converts beta to degrees
+        cout << "Beta (angle between base and height): " << betaDeg << " degrees\n";    // Outputs beta answer
 
-        theta = 180 - betaDeg;                                                  // Calculates theta, the angle around the unit circle staring at 0
-        cout << "\nTheta: " << theta << " degrees" << RESET;                    // Outputs theta answer
+        theta = 180 - betaDeg;                                                          // Calculates theta, the angle around the unit circle staring at 0
+        cout << "\nTheta: " << theta << " degrees" << RESET;                            // Outputs theta answer
 
-    } else if (base <= 0 && height <= 0) {                                      // Checks conditions for quadrant 3
+    } else if (base <= 0 && height <= 0) {                                              // Checks conditions for quadrant 3
 
-        hypotenuse = sqrt(pow(base, 2) + pow(height, 2));                       // Calculates the hypotenuse 
-        cout << BOLDRED << "\nHypotenuse: " << hypotenuse << "\n\n";            // Outputs the hypotenuse answer in color Red
+        hypotenuse = sqrt(pow(base, 2) + pow(height, 2));                               // Calculates the hypotenuse 
+        cout << BOLDRED << "\nHypotenuse: " << hypotenuse << "\n\n";                    // Outputs the hypotenuse answer in color Red
     
-        beta = fabs(atan(height / base));                                       // Calculates beta in radians
-        betaDeg = beta * (180 / M_PI );                                         // Converts beta to degrees
-        cout << "Beta: " << betaDeg << " degrees\n";                            // Outputs beta answer
+        beta = fabs(atan(height / base));                                               // Calculates beta in radians
+        betaDeg = beta * (180 / M_PI );                                                 // Converts beta to degrees
+        cout << "Beta (angle between base and height): " << betaDeg << " degrees\n";    // Outputs beta answer
 
-        theta = 180 + betaDeg;                                                  // Calculates theta
-        cout << "\nTheta: " << theta << " degrees" << RESET;                    // Outputs theta answer
+        theta = 180 + betaDeg;                                                          // Calculates theta
+        cout << "\nTheta: " << theta << " degrees" << RESET;                            // Outputs theta answer
 
-    } else if (base > 0 && height < 0) {                                        // Condition for quadrant 4
-        hypotenuse = sqrt(pow(base, 2) + pow(height, 2));                       // Calculates the hypotenuse 
-        cout << BOLDRED << "\nHypotenuse: " << hypotenuse << "\n\n";            // Outputs the hypotenuse answer in color Red
+    } else if (base > 0 && height < 0) {                                                // Condition for quadrant 4
+        hypotenuse = sqrt(pow(base, 2) + pow(height, 2));                               // Calculates the hypotenuse 
+        cout << BOLDRED << "\nHypotenuse: " << hypotenuse << "\n\n";                    // Outputs the hypotenuse answer in color Red
     
-        beta = fabs(atan(height / base));                                       // Calculates beta in radians
-        betaDeg = beta * (180 / M_PI );                                         // Converts beta to degrees
-        cout << "Beta: " << betaDeg << " degrees\n";                            // Outputs beta answer
+        beta = fabs(atan(height / base));                                               // Calculates beta in radians
+        betaDeg = beta * (180 / M_PI );                                                 // Converts beta to degrees
+        cout << "Beta (angle between base and height): " << betaDeg << " degrees\n";    // Outputs beta answer
 
-        theta = 270 + betaDeg;                                                  // Calculates theta
-        cout << "\nTheta: " << theta << " degrees" << RESET;                     // Outputs theta
+        theta = 270 + betaDeg;                                                          // Calculates theta
+        cout << "\nTheta: " << theta << " degrees" << RESET;                            // Outputs theta
     } 
 
 
