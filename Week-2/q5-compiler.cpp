@@ -2,7 +2,7 @@
 Azizbek Shokosimov
 q5-compiler
 Use string variable and length function to output some gmails
-09/01/2022
+09/02/2022
 csc121
 */
 
@@ -19,11 +19,12 @@ int main() {
     cout << "\tEnter last name: ";          // Output text in quotes
     cin >> last;                            // Store user input in variable last
 
-    string firstLetter {first[0]};          // Declare firstLetter and obain first letter of name in string
-    string lastLetter {last[0]};            // Declare lastLetter and obain first letter of name in string
+    string firstLetterFirst {first[0]};          // Declare firstLetter and obain first letter of name in string
+    string firstLetterLast {last[0]};            // Declare lastLetter and obain first letter of name in string
 
-    string x{firstLetter + lastLetter};             // Declare string x and set value to firstLetter + lastLetter
+    string x{firstLetterFirst + last};              // Declare string x and set value to firstLetter + lastLetter
     cout << "\n\t" << x << "@company.com\n";        // Output text in quotes
 
-    cout << "\n\t" << x << first.length() + last.length() << "@whatsInaName.com" << "\n\n";     // Combine variable x with length of first and last name combined
+    string y{firstLetterFirst + firstLetterLast};                                            // Declare y and set its value to first initial combined with last name initial
+    cout << "\n\t" << y << first.length() + last.length() << "@whatsInaName.com" << "\n\n";  // Combine variable x with length of first and last name combined
 }
