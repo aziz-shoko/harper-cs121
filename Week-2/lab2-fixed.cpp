@@ -12,7 +12,6 @@ x = 8
 y = 2.5
 name = gary
 first init = g
-
 */
 
 #include<iostream>			                        // Place a comment next to each change
@@ -37,7 +36,7 @@ int main()
 
 	char z = c(g);                              // Added g so now we can have z output the first initial as a char
 
-	cout << "\n\n\tx = " << x << endl << "\ty = " << y << endl << "\n\tname = " << w << endl << "\tfirst init = " << z << endl;
+	cout << "\n\n\tx = " << x << endl << "\ty = " << y << endl << "\n\tname = " << w << endl << "\tfirst init = " << z << endl;   // Deleted back main text because we nol onger need it
 	return 0;
 }
 
