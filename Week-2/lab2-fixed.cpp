@@ -54,7 +54,7 @@ double b(double by)
 
 char c(char cz)
 {
-	// cout << "\nyour first initial is " << name[0];
+	// cout << "\nyour first initial is " << name[0];                                             // Commented text because we no longer need it
 	return name[0];
 }
 
