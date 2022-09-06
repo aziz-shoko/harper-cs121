@@ -18,7 +18,7 @@ void zeroHundred(double);                                   // Declaring zeroHun
 int main() {                                                // Main function start
     double numb{};                                          // Declaring the numb variable
 
-    cout << "Enter Number: ";                               // Ask user input a number
+    cout << "Enter Whole Number: ";                         // Ask user input a number
     cin >> numb;                                            // Store the user input in numb variable
     
     posNeg(numb);                                           // Call function posNeg
