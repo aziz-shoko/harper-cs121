@@ -9,14 +9,14 @@ csc121
 #include <iostream>                                         // Library for using cout and cin
 using namespace std;                                        // Avoid using std::
 
-void posNeg(double);                                        // Declaring posNeg function
+void posNeg(int);                                           // Declaring posNeg function
 void evenOdd(int);                                          // Declaring evenOdd function
 void divThree(int);                                         // Declaring divThree function
 void multiFive(int);                                        // Declaring multiFive function
-void zeroHundred(double);                                   // Declaring zeroHundred function
+void zeroHundred(int);                                      // Declaring zeroHundred function
 
 int main() {                                                // Main function start
-    double numb{};                                          // Declaring the numb variable
+    int numb{};                                             // Declaring the numb variable
 
     cout << "Enter Whole Number: ";                         // Ask user input a number
     cin >> numb;                                            // Store the user input in numb variable
@@ -29,7 +29,7 @@ int main() {                                                // Main function sta
 
 }
 
-void posNeg(double numb) {                                  
+void posNeg(int numb) {                                  
     if ( numb > 0) {                                        // check condition for positive
         cout << numb << " = Positive Number\n";
     } else if ( numb < 0 ) {                                // check condition for negative
@@ -63,7 +63,7 @@ void multiFive (int numb) {
     }
 }
 
-void zeroHundred (double numb) {
+void zeroHundred (int numb) {
     if ( numb >= 0 && numb <= 100 ) {                       // check condition if number is between 0 to 100
         cout << numb << " = Between 0 to 100\n";
     } else {                                                // check condition if number is not between 0 to 100
