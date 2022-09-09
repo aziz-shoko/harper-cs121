@@ -17,7 +17,7 @@ int main() {
     cin >> num;                                                                                                         // Store user input in num
     cout << "Number: " << num << endl;                                                                                  // Output user number
 
-    string positive{ (num > 0) ? "Positve Number" : "Negative Number" };                                                // Variable for checking if num is pos or neg
+    string positive{ (num >= 0) ? "Positve Number" : "Negative Number" };                                                // Variable for checking if num is pos or neg
     string zero{ (num == 0) ? "Zero" : "Not Zero"};                                                                     // Variable for checking if num is zero or non zero
     string even{ (num%2 == 0) ? "Even Number" : "Odd Number" };                                                         // Variable for checking if num is even or odd
     string divThree{ (num%3 == 0) ? "Divisable by 3" : "Not divisable by 3" };                                          // Variable for cheking if num is divisable by 3
