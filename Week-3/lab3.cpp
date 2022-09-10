@@ -21,6 +21,9 @@ using namespace std;
 void title(void);
 void display(void);
 
+int num[9] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+
 int main() {
     title();
     display();
@@ -39,7 +42,7 @@ void title(){
 }
 
 void display() {
-    cout << BOLDRED << "\n\n\n\n\t 1" << setw(10) << "2" << setw(10) << "3";                        // Outputs evenly spaced 1, 2, 3
-    cout << "\n\n\n\n\t 4" << setw(10) << "5" << setw(10) << "6";                                   // Outputs evenly spaced 4, 5, 6
-    cout << "\n\n\n\n\t 7" << setw(10) << "8" << setw(12) << "9\n\n" << RESET << endl;              // Outputs evenly spaced 7, 8, 9
+    cout << BOLDRED << "\n\n\n\n\t" << num[0] << setw(10) << num[1] << setw(10) << num[2];                      // Outputs evenly spaced 1, 2, 3
+    cout << "\n\n\n\n\t" << num[3] << setw(10) << num[4] << setw(10) << num[5];                              // Outputs evenly spaced 4, 5, 6
+    cout << "\n\n\n\n\t" << num[6] << setw(10) << num[7] << setw(10) << num[8] << "\n\n" << RESET << endl;   // Outputs evenly spaced 7, 8, 9
 }
