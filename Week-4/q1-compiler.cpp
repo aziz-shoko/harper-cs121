@@ -1,8 +1,8 @@
 /*
 Azizbek Shokosimov
-Week 3 Q3
+Week 4 Q1
 Using if and else statements
-09/07/2022
+09/013/2022
 csc121
 */
 
@@ -34,21 +34,25 @@ int main() {
 }
 
 void validator(double score) {              
-    if ( score < 0 || score > 100) {                                                    // Check to see if score is between 0 and 100
+    if ( score < 0 ) {                                                                  // Check to see if score is less than 100
         cout << BOLDRED << "\t\nPlease enter a valid score next time!\n\n" << RESET;    // Output text in quotes
+        exit(0);                                                                        // Exit 
+    } else if (score > 100 ) {                                                          // Check to see if score is more than 100
+        cout << BOLDRED << "\t\nPlease enter a valid score next time!\n\n" << RESET;    // Output text in quotes
+        exit(0);                                                                        // Exit
     }
 }
 
 void grade(double score) {                                                              
-    if ( score >= 90 && score <= 100 ) {                                                // Check score for range 90 to 100
+    if ( score >= 90 ) {                                                                // Check score for range 90 to 100
         cout << BOLDGREEN << "\t\nYour score is A! Congratulations!\n\n" << RESET;      // Output text in bold green
-    } else if ( score >= 80 && score < 90) {                                            // Check score for range 80 to 90
+    } else if ( score >= 80 ) {                                                         // Check score for range 80 to 90
         cout << GREEN << "\t\nYour score is B!\n\n" << RESET;                           // Output text in green
-    } else if ( score >= 70 && score < 80 ) {                                           // Check score for range 70 to 80
+    } else if ( score >= 70 ) {                                                         // Check score for range 70 to 80
         cout << YELLOW << "\t\nYour score is C!\n\n" << RESET;                          // Output text in yellow
-    } else if ( score >= 60 && score < 70 ) {                                           // Check score for range 60 to 70
+    } else if ( score >= 60 ) {                                                         // Check score for range 60 to 70
         cout << BOLDYELLOW << "\t\nYour score is D!\n\n" << RESET;                      // Output text in bold tellow
-    } else if ( score >= 0 && score < 60 ) {                                            // Check score for range 0 to 60
+    } else if ( score >= 0 ) {                                                          // Check score for range 0 to 60
         cout << BOLDRED << "\t\nYour score is F!\n\n" << RESET;                         // Output text in bold red
     }   
 }
