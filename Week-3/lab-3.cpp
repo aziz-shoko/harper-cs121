@@ -24,12 +24,12 @@ char num[10] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};   // Declare num a
 char userNum{};                                                 // Declare userNum variable                                                  
 
 int main() {
-    while ( 1==1 ) {                                            // infinite loop
-        char null{};                                            // create emtpy char variable
+    char null{};                                            // create emtpy char variable
 
-        title();                                                // call function title
-        display(null);                                          // call function display and pass on var null
+    title();                                                // call function title
+    display(null);                                          // call function display and pass on var null
 
+    while ( 1==1 ) {
         cout << "Player X enter a number: ";                    // Ouput player x enter number
         cin >> userNum;                                         // Store user input in userNum
 
