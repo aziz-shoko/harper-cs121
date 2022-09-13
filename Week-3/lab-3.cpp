@@ -33,15 +33,49 @@ int main() {
         cout << "Player X enter a number: ";                    // Ouput player x enter number
         cin >> userNum;                                         // Store user input in userNum
 
-        char X{ (userNum == num[0]) ? num[0] = 'X' : (userNum == num[1]) ? num[1] = 'X' : (userNum == num[2]) ? num[2] = 'X' : (userNum == num[3]) ? num[3] = 'X' : (userNum == num[4]) ? num[4] = 'X' : (userNum == num[5]) ? num[5] = 'X' : (userNum == num[6]) ? num[6]= 'X' : (userNum == num[7]) ? num[7] = 'X' : (userNum == num[8]) ? num[8] = 'X' : '!'};
-        // Condition for player X choosing between 1 - 9
+        char X{ (userNum == num[0]) ?                           // Condition for player X choosing between 1 - 9
+            num[0] = 'X' : 
+                (userNum == num[1]) ? 
+                    num[1] = 'X' : 
+                        (userNum == num[2]) ? 
+                            num[2] = 'X' : 
+                                (userNum == num[3]) ? 
+                                    num[3] = 'X' : 
+                                        (userNum == num[4]) ? 
+                                            num[4] = 'X' : 
+                                                (userNum == num[5]) ? 
+                                                    num[5] = 'X' : 
+                                                        (userNum == num[6]) ? 
+                                                            num[6]= 'X' : 
+                                                                (userNum == num[7]) ? 
+                                                                    num[7] = 'X' : 
+                                                                        (userNum == num[8]) ? 
+                                                                            num[8] = 'X' : '!'};
+        
         display(X);                                             // call function display and pass on var X                                          
 
         cout << "Player O enter a number: ";                    // Ask player O to enter a number
         cin >> userNum;                                         // store user input in userNum
 
-        char O{ (userNum == num[0]) ? num[0] = 'O' : (userNum == num[1]) ? num[1] = 'O' : (userNum == num[2]) ? num[2] = 'O' : (userNum == num[3]) ? num[3] = 'O' : (userNum == num[4]) ? num[4] = 'O' : (userNum == num[5]) ? num[5] = 'O' : (userNum == num[6]) ? num[6]= 'O' : (userNum == num[7]) ? num[7] = 'O' : (userNum == num[8]) ? num[8] = 'O' : '!'};
-        // Condition for play O choosing between 1 - 9
+        char O{ (userNum == num[0]) ?                           // Condition for play O choosing between 1 - 9
+            num[0] = 'O' : 
+                (userNum == num[1]) ? 
+                    num[1] = 'O' : 
+                        (userNum == num[2]) ? 
+                            num[2] = 'O' : 
+                                (userNum == num[3]) ? 
+                                    num[3] = 'O' : 
+                                        (userNum == num[4]) ? 
+                                            num[4] = 'O' : 
+                                                (userNum == num[5]) ?
+                                                     num[5] = 'O' : 
+                                                        (userNum == num[6]) ? 
+                                                            num[6]= 'O' : 
+                                                                (userNum == num[7]) ? 
+                                                                    num[7] = 'O' : 
+                                                                        (userNum == num[8]) ? 
+                                                                            num[8] = 'O' : '!'};
+                                                                        
         display(O);                                             // Call function display and pass on var O
     }
 }
