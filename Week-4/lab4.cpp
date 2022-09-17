@@ -39,7 +39,7 @@ int main() {
             beta = 'O';                                                     // Sets beta value to char O
         }
 
-        cout << "Player " << beta <<" enter a number: " << endl;            // Ouput player x enter number
+        cout << "Player " << beta <<" enter a number: ";            // Ouput player x enter number
         cin >> userNum;                                                     // Store user input in userNum
 
         while ( 2==2 ) {
