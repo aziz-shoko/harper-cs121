@@ -25,7 +25,7 @@ char num[10] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};   // Declare num a
 char userNum{};                                                 // Declare userNum variable
 int alpha{1};                                                   // Declare variable alpha
 char beta{};                                                    // Declare variable beta
-string theta{};                                                 // Declare variable theta
+string userInput{};                                                 // Declare variable userInput
 
 int main() {
     char null{};                                            // create emtpy char variable
@@ -42,10 +42,10 @@ int main() {
 
 
         cout << "Player " << beta <<" enter a number (1-9): ";              // Ouput player x enter number
-        cin >> theta;                                                       // Store user input in theta
+        cin >> userInput;                                                       // Store user input in userInput
         
-        if (theta.length() == 1 ) {                                         // Condition to see if user inputed 1 char 
-            userNum = theta[0];                                             // Set userNum to first char of theta
+        if (userInput.length() == 1 ) {                                         // Condition to see if user inputed 1 char 
+            userNum = userInput[0];                                             // Set userNum to first char of userInput
         } else {
             userNum = '\0';                                                 // Set userNum value to null (learned from error message suggestion)
         }
