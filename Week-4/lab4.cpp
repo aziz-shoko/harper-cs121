@@ -25,7 +25,7 @@ char num[10] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};   // Declare num a
 char userNum{};                                                 // Declare userNum variable
 int alpha{1};                                                   // Declare variable alpha
 char beta{};                                                    // Declare variable beta
-string theta{};
+string theta{};                                                 // Declare variable theta
 
 int main() {
     char null{};                                            // create emtpy char variable
@@ -41,15 +41,15 @@ int main() {
         }
 
 
-        cout << "Player " << beta <<" enter a number: ";                  // Ouput player x enter number
-        cin >> theta;                                                     // Store user input in userNum
+        cout << "Player " << beta <<" enter a number (1-9): ";              // Ouput player x enter number
+        cin >> theta;                                                       // Store user input in theta
         
-        if (theta.length() == 1 ) {
-            userNum = theta[0];
+        if (theta.length() == 1 ) {                                         // Condition to see if user inputed 1 char 
+            userNum = theta[0];                                             // Set userNum to first char of theta
         }
 
         if ( userNum != num[0] && userNum != num[1] && userNum != num[2] && userNum != num[3] && userNum != num[4] && userNum != num[5] && userNum != num[6] && userNum != num[7] && userNum != num[8] ) {
-            cout << BOLDRED << "\nInvalid! Enter number 1 - 9: \n\n" << RESET;
+            cout << BOLDRED << "\nInvalid! Enter number 1 - 9: \n\n" << RESET;                          // Condition to see if user inputted number between 1 through 9
             continue;
         } else {
 
