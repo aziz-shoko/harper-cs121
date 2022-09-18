@@ -25,7 +25,7 @@ char num[10] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};   // Declare num a
 char userNum{};                                                 // Declare userNum variable
 int alpha{1};                                                   // Declare variable alpha
 char beta{};                                                    // Declare variable beta
-string userInput{};                                                 // Declare variable userInput
+string userInput{};                                             // Declare variable userInput
 
 int main() {
     char null{};                                            // create emtpy char variable
@@ -47,7 +47,7 @@ int main() {
         if (userInput.length() == 1 ) {                                         // Condition to see if user inputed 1 char 
             userNum = userInput[0];                                             // Set userNum to first char of userInput
         } else {
-            userNum = '\0';                                                 // Set userNum value to null (learned from error message suggestion)
+            userNum = '\0';                                                     // Set userNum value to null (learned from error message suggestion)
         }
 
         if ( userNum != '1' && userNum != '2' && userNum != '3' && userNum != '4' && userNum != '5' && userNum != '6' && userNum != '7' && userNum != '8' && userNum != '9' ) {
@@ -95,33 +95,33 @@ void title(){
 
 void validator(char) {                                                     // function for making sure player doesn't override already set values
     if ( userNum == '1' && num[0] != beta ) {                              // Checks to see if userNum == 1 and This is for square one, the following under is the same thing but for all other squares
-                alpha--;                                                   // Decreases values of alpha by 1 so the program is forced to loop back to the current players turn 
-                cout << BOLDRED << "\nCannot Override! Try again: ";       // and ask the player to Try again Try again: 
-        } else if ( userNum == '2' && num[1] != beta) {
-                alpha--;
-                cout << BOLDRED << "\nCannot Override! Try again: ";
-        } else if ( userNum == '3' && num[2] != beta ) {
-                alpha--;
-                cout << BOLDRED << "\nCannot Override! Try again: ";
-        } else if ( userNum == '4' && num[3] != beta ) {
-                alpha--;
-                cout << BOLDRED << "\nCannot Override! Try again: ";
-        } else if ( userNum == '5' && num[4] != beta ) {
-                alpha--;
-                cout << BOLDRED << "\nCannot Override! Try again: ";
-        } else if ( userNum == '6' && num[5] != beta ) {
-                alpha--;
-                cout << BOLDRED << "\nCannot Override! Try again: ";
-        } else if ( userNum == '7' && num[6] != beta ) {
-                alpha--;
-                cout << BOLDRED << "\nCannot Override! Try again: ";
-        } else if ( userNum == '8' && num[7] != beta ) {
-                alpha--;
-                cout << BOLDRED <<  "\nCannot Override! Try again: ";
-        } else if ( userNum == '9' && num[8] != beta ) {
-                alpha--;
-                cout << BOLDRED << "\nCannot Override! Try again: ";
-        }
+        alpha--;                                                   // Decreases values of alpha by 1 so the program is forced to loop back to the current players turn 
+        cout << BOLDRED << "\nCannot Override! Try again: ";       // and ask the player to Try again Try again: 
+    } else if ( userNum == '2' && num[1] != beta) {
+        alpha--;
+        cout << BOLDRED << "\nCannot Override! Try again: ";
+    } else if ( userNum == '3' && num[2] != beta ) {
+        alpha--;
+        cout << BOLDRED << "\nCannot Override! Try again: ";
+    } else if ( userNum == '4' && num[3] != beta ) {
+        alpha--;
+        cout << BOLDRED << "\nCannot Override! Try again: ";
+    } else if ( userNum == '5' && num[4] != beta ) {
+        alpha--;
+        cout << BOLDRED << "\nCannot Override! Try again: ";
+    } else if ( userNum == '6' && num[5] != beta ) {
+        alpha--;
+        cout << BOLDRED << "\nCannot Override! Try again: ";
+    } else if ( userNum == '7' && num[6] != beta ) {
+        alpha--;
+        cout << BOLDRED << "\nCannot Override! Try again: ";
+    } else if ( userNum == '8' && num[7] != beta ) {
+        alpha--;
+        cout << BOLDRED <<  "\nCannot Override! Try again: ";
+    } else if ( userNum == '9' && num[8] != beta ) {
+        alpha--;
+        cout << BOLDRED << "\nCannot Override! Try again: ";
+    }
 }
 
 void display(char) {
