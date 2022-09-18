@@ -25,6 +25,7 @@ char num[10] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};   // Declare num a
 char userNum{};                                                 // Declare userNum variable
 int alpha{1};                                                   // Declare variable alpha
 char beta{};                                                    // Declare variable beta
+string theta{};
 
 int main() {
     char null{};                                            // create emtpy char variable
@@ -39,39 +40,43 @@ int main() {
             beta = 'O';                                                     // Sets beta value to char O
         }
 
-        cout << "Player " << beta <<" enter a number: ";            // Ouput player x enter number
-        cin >> userNum;                                                     // Store user input in userNum
 
-        while ( 2==2 ) {
-            if ( userNum != num[0] && userNum != num[1] && userNum != num[3] && userNum != num[4] && userNum != num[5] && userNum != num[6] && userNum != num[7] && userNum != num[8] ) {
-                cout << "\nInvalid! Enter number 1 - 9: \n\n";
-                break;
-            }
-        }
+        cout << "Player " << beta <<" enter a number: ";                  // Ouput player x enter number
+        cin >> theta;                                                     // Store user input in userNum
         
-        char X{ (userNum == num[0] && num[0] != 'O' && num[0] !='X') ?                              // Condition for player X choosing between 1 - 9
-            num[0] = beta:                                                                          // Once the player chooses the sqaure, the value cannot be changed if its O or X
-                (userNum == num[1] && num[1] != 'O' && num[1] !='X') ? 
-                    num[1] = beta: 
-                        (userNum == num[2] && num[2] != 'O' && num[2] !='X') ? 
-                            num[2] = beta: 
-                                (userNum == num[3] && num[3] != 'O' && num[3] !='X') ? 
-                                    num[3] = beta: 
-                                        (userNum == num[4] && num[4] != 'O' && num[4] !='X') ? 
-                                            num[4] = beta: 
-                                                (userNum == num[5] && num[5] != 'O' && num[5] !='X') ? 
-                                                    num[5] = beta: 
-                                                        (userNum == num[6] && num[6] != 'O' && num[6] !='X') ? 
-                                                            num[6]= beta: 
-                                                                (userNum == num[7] && num[7] != 'O' && num[7] !='X') ? 
-                                                                    num[7] = beta: 
-                                                                        (userNum == num[8] && num[8] != 'O' && num[8] !='X') ? 
-                                                                            num[8] = beta: '!'}; 
+        if (theta.length() == 1 ) {
+            userNum = theta[0];
+        }
+
+        if ( userNum != num[0] && userNum != num[1] && userNum != num[2] && userNum != num[3] && userNum != num[4] && userNum != num[5] && userNum != num[6] && userNum != num[7] && userNum != num[8] ) {
+            cout << BOLDRED << "\nInvalid! Enter number 1 - 9: \n\n" << RESET;
+            continue;
+        } else {
+
+            char X{ (userNum == num[0] && num[0] != 'O' && num[0] !='X') ?                              // Condition for player X choosing between 1 - 9
+                num[0] = beta:                                                                          // Once the player chooses the sqaure, the value cannot be changed if its O or X
+                    (userNum == num[1] && num[1] != 'O' && num[1] !='X') ? 
+                        num[1] = beta: 
+                            (userNum == num[2] && num[2] != 'O' && num[2] !='X') ? 
+                                num[2] = beta: 
+                                    (userNum == num[3] && num[3] != 'O' && num[3] !='X') ? 
+                                        num[3] = beta: 
+                                            (userNum == num[4] && num[4] != 'O' && num[4] !='X') ? 
+                                                num[4] = beta: 
+                                                    (userNum == num[5] && num[5] != 'O' && num[5] !='X') ? 
+                                                        num[5] = beta: 
+                                                            (userNum == num[6] && num[6] != 'O' && num[6] !='X') ? 
+                                                                num[6]= beta: 
+                                                                    (userNum == num[7] && num[7] != 'O' && num[7] !='X') ? 
+                                                                        num[7] = beta: 
+                                                                            (userNum == num[8] && num[8] != 'O' && num[8] !='X') ? 
+                                                                                num[8] = beta: '!'}; 
 
 
-        validator(X);                                           // calls validator function so values can't be overrided 
-        display(X);                                             // call function display and pass on var X    
-        alpha++;                                                // Increase value of alpha by 1 
+            validator(X);                                           // calls validator function so values can't be overrided 
+            display(X);                                             // call function display and pass on var X    
+            alpha++;                                                // Increase value of alpha by 1 
+        }
     }
 }
 
