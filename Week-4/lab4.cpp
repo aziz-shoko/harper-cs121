@@ -47,7 +47,7 @@ int main() {
         if (theta.length() == 1 ) {                                         // Condition to see if user inputed 1 char 
             userNum = theta[0];                                             // Set userNum to first char of theta
         } else {
-            userNum = '\0';
+            userNum = '\0';                                                 // Set userNum value to null (learned from error message suggestion)
         }
 
         if ( userNum != '1' && userNum != '2' && userNum != '3' && userNum != '4' && userNum != '5' && userNum != '6' && userNum != '7' && userNum != '8' && userNum != '9' ) {
@@ -55,7 +55,7 @@ int main() {
         } else {
 
             char X{ (userNum == num[0] && num[0] != 'O' && num[0] !='X') ?                              // Condition for player X choosing between 1 - 9
-                num[0] = beta:                                                                          // Once the player chooses the sqaure, the value cannot be changed if its O or X
+                num[0] = beta:                                                                          // Once the player chooses the square, the value cannot be changed if its O or X
                     (userNum == num[1] && num[1] != 'O' && num[1] !='X') ? 
                         num[1] = beta: 
                             (userNum == num[2] && num[2] != 'O' && num[2] !='X') ? 
@@ -94,51 +94,33 @@ void title(){
 }
 
 void validator(char) {                                                     // function for making sure player doesn't override already set values
-    if ( userNum == '1' ) {                                                // Checks to see if userNum == 1 
-            if ( num[0] != beta ) {                                        // Checks to see if num[0] doesn't eqaul beta
+    if ( userNum == '1' && num[0] != beta ) {                              // Checks to see if userNum == 1 and This is for square one, the following under is the same thing but for all other squares
                 alpha--;                                                   // Decreases values of alpha by 1 so the program is forced to loop back to the current players turn 
                 cout << BOLDRED << "\nCannot Override! Try again: ";       // and ask the player to Try again Try again: 
-            }                                                              // This is for square one, the following under it is the same thing but for all other squares
-        } else if ( userNum == '2' ) {
-            if ( num[1] != beta ) {
+        } else if ( userNum == '2' && num[1] != beta) {
                 alpha--;
                 cout << BOLDRED << "\nCannot Override! Try again: ";
-            }
-        } else if ( userNum == '3' ) {
-            if ( num[2] != beta ) {
+        } else if ( userNum == '3' && num[2] != beta ) {
                 alpha--;
                 cout << BOLDRED << "\nCannot Override! Try again: ";
-            }
-        } else if ( userNum == '4' ) {
-            if ( num[3] != beta ) {
+        } else if ( userNum == '4' && num[3] != beta ) {
                 alpha--;
                 cout << BOLDRED << "\nCannot Override! Try again: ";
-            }
-        } else if ( userNum == '5' ) {
-            if ( num[4] != beta ) {
+        } else if ( userNum == '5' && num[4] != beta ) {
                 alpha--;
                 cout << BOLDRED << "\nCannot Override! Try again: ";
-            }
-        } else if ( userNum == '6' ) {
-            if ( num[5] != beta ) {
+        } else if ( userNum == '6' && num[5] != beta ) {
                 alpha--;
                 cout << BOLDRED << "\nCannot Override! Try again: ";
-            }
-        } else if ( userNum == '7' ) {
-            if ( num[6] != beta ) {
+        } else if ( userNum == '7' && num[6] != beta ) {
                 alpha--;
                 cout << BOLDRED << "\nCannot Override! Try again: ";
-            }
-        } else if ( userNum == '8' ) {
-            if ( num[7] != beta ) {
+        } else if ( userNum == '8' && num[7] != beta ) {
                 alpha--;
                 cout << BOLDRED <<  "\nCannot Override! Try again: ";
-            }
-        } else if ( userNum == '9' ) {
-            if ( num[8] != beta ) {
+        } else if ( userNum == '9' && num[8] != beta ) {
                 alpha--;
                 cout << BOLDRED << "\nCannot Override! Try again: ";
-            }
         }
 }
 
