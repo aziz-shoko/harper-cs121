@@ -2,7 +2,7 @@
 Azizbek Shokosimov
 lab4
 We will build tic tac toe
-09/16/2022
+09/17/2022
 csc121
 */
 
