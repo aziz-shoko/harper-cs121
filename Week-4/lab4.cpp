@@ -46,11 +46,12 @@ int main() {
         
         if (theta.length() == 1 ) {                                         // Condition to see if user inputed 1 char 
             userNum = theta[0];                                             // Set userNum to first char of theta
+        } else {
+            userNum = '\0';
         }
 
-        if ( userNum != num[0] && userNum != num[1] && userNum != num[2] && userNum != num[3] && userNum != num[4] && userNum != num[5] && userNum != num[6] && userNum != num[7] && userNum != num[8] ) {
+        if ( userNum != '1' && userNum != '2' && userNum != '3' && userNum != '4' && userNum != '5' && userNum != '6' && userNum != '7' && userNum != '8' && userNum != '9' ) {
             cout << BOLDRED << "\nInvalid! Enter number 1 - 9: \n\n" << RESET;                          // Condition to see if user inputted number between 1 through 9
-            continue;
         } else {
 
             char X{ (userNum == num[0] && num[0] != 'O' && num[0] !='X') ?                              // Condition for player X choosing between 1 - 9
