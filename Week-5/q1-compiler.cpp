@@ -13,7 +13,7 @@ using namespace std;
 void up(string);
 void down(string);
 
-int i{}, n{};
+int i{};
 string userInput{};
 
 int main() {
@@ -30,9 +30,6 @@ int main() {
 
 void down(string) {
     for ( i = 1; i <= 100; i++) {
-        for ( n = 10; n%2 != 0 && n%3 != 0 && n%5 != 0 && n%7 != 0 && n%9 !=0; n++ ){
-            continue
-        }
         if ( i%2 != 0 && i%3 != 0 && i%5 != 0 && i%7 != 0 && i%9 !=0) {
             continue;
         }
