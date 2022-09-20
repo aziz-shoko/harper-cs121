@@ -43,7 +43,18 @@ void down(string) {
 
 void up(string) {
     for ( i = 100; i >= 1; i-- ) {
-        cout << i << endl;
+        if ( i >= 10) {
+            if ( i%2 != 0 && i%3 != 0 && i%5 != 0 && i%7 != 0 && i%9 !=0) {
+                cout << "\n" << i;
+            } else {
+                cout << " " << i;
+            }
+        } else if ( i < 10 ) {
+            if ( i == 1 || i ==2 || i == 3 || i == 5 || i == 7){
+                cout << "\n" << i;
+            } else {
+                cout << " " << i;
+            }
+        }
     }
-
 }
