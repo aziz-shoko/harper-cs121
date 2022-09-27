@@ -16,12 +16,17 @@ int main() {
     cin >> name;
     transform(name.begin(), name.end(), name.begin(), ::tolower);
 
-    int length{name.length()};
-
-    for (int i =0; i < length; i++ ){
-        if (name[i] == 'a', name[i] == 'e', name[i] == 'i', name[i] == 'o', name[i] == 'u'){
-            cout << name[i];
+    cout << "Vowels: ";
+    for (int i = 0; i < name.length(); i++ ){
+        if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u'){
+            cout << name[i] << " ";
         }
     }
+    
+    cout << "\nName backwards: ";
+    for (int i = name.length()-1; i >= 0; i-- ){
+        cout << name[i];
+    }
+    cout << "\n";
 }
 
