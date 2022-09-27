@@ -16,7 +16,7 @@ int h{11};                                                      // Declare var h
 
 int main() {
     for (int i = 0; i < 1; i++){                                // infinite loop because i will always be < 0 (i-- at the bottom)
-        cout << h << ":" << m << ":" << s << "\t\r" << flush;   // \r works for linus if flush is specified at the end
+        cout << h << ":" << m << ":" << s << endl;              // output time
         usleep(1000000);                                        // sleeps for 1 second before increasing s by 1
         s++;                                                    // s = s+1
         if ( s==60) {                                           // if seconds reaches 60
