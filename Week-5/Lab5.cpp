@@ -17,6 +17,7 @@ using namespace std;           // avoid using std::
 #define BOLDMAGENTA "\033[1m\033[35m"      /* Bold Magenta */
 #define BOLDRED     "\033[1m\033[31m"      /* Bold Red */
 #define BOLDGREEN   "\033[1m\033[32m"      /* Bold Green */
+#define BOLDYELLOW  "\033[1m\033[33m"      /* Bold Yellow */
 
 void title(void);                                               // Declare function title
 void game(void);
@@ -130,6 +131,9 @@ void display(char) {
         exit(0);
     } else if (num[2] == beta && num[5] == beta && num[8] == beta) {                // Win condition for squares 3, 6, 9
         cout << BOLDGREEN << "Congratulations! Player " << beta << " wins!\n\n";;
+        exit(0);
+    } else if (num[0] != '1' && num[1] != '2' && num[2] != '3' && num[3] != '4' && num[4] != '5' && num[5] != '6' && num[6] != '7' && num[7] != '8' && num[8] != '9') {
+        cout << BOLDYELLOW << "Its a Tie!" << endl;
         exit(0);
     }
 }
