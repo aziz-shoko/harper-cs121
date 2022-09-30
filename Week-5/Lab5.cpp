@@ -35,7 +35,22 @@ int main() {
 
     title();                                                // call function title
     display(null);                                          // call function display and pass on var null (silences too few arguments error)
+    game();
+}
 
+void title(){
+    cout << BOLDMAGENTA <<"\n\tName: Azizbek Shokosimov";                                           // Output Name in new line in magenta and tabbed format
+    cout << "\n\tDate: 09/29/2022";                                                                 // Output Date in new line with tab
+    cout << "\n\tLab: Week 5 Lab";                                                                  // Output Lab Number in new line with tab
+    cout << "\n\tTitle: Tic Tac Toe Project";                                                       // Output Title in new line with tab
+    cout << "\n\tObjective: Create a tic tac toe board" << RESET;                                   // Output Objective in new line with tab
+
+    cout << BOLDGREEN <<"\n\n\n\n\t|---------|----------|---------|";                               // Chooses the green color for title and outputs a line 
+    cout << "\n\t| Tic" << setw (10) << "| Tac" << setw(11) << "| Toe" << setw(6) << "|";   // Outputs Tic Tac Toe title 
+    cout << "\n\t|---------|----------|---------|" << RESET;                                        // Outputs the last line
+}
+
+void game() {
     for (int i = 1; i > 0; i++ ) {                                          // Infinite loop
         if ( alpha%2 == 1) {                                                // checks if alpha modules 2 is equal to 1
             beta = 'X';                                                     // Sets beta value to char X
@@ -44,7 +59,7 @@ int main() {
         } else {
             beta = 'O';                                                     // Sets beta value to char O
             cout << "The Bot is thinking..." << endl;
-            usleep(3000000);                                                // sleeps for 1 second before increasing s by 1
+            usleep(500000);                                                // sleeps for 1 second before increasing s by 1
             srand(time(0));
             userInput = to_string(rand() % 9 + 1);
         } 
@@ -85,18 +100,6 @@ int main() {
             alpha++;                                                // Increase value of alpha by 1 
         }
     }
-}
-
-void title(){
-    cout << BOLDMAGENTA <<"\n\tName: Azizbek Shokosimov";                                           // Output Name in new line in magenta and tabbed format
-    cout << "\n\tDate: 09/29/2022";                                                                 // Output Date in new line with tab
-    cout << "\n\tLab: Week 5 Lab";                                                                  // Output Lab Number in new line with tab
-    cout << "\n\tTitle: Tic Tac Toe Project";                                                       // Output Title in new line with tab
-    cout << "\n\tObjective: Create a tic tac toe board" << RESET;                                   // Output Objective in new line with tab
-
-    cout << BOLDGREEN <<"\n\n\n\n\t|---------|----------|---------|";                               // Chooses the green color for title and outputs a line 
-    cout << "\n\t| Tic" << setw (10) << "| Tac" << setw(11) << "| Toe" << setw(6) << "|";   // Outputs Tic Tac Toe title 
-    cout << "\n\t|---------|----------|---------|" << RESET;                                        // Outputs the last line
 }
 
 void display(char) {
