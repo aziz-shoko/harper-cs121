@@ -44,7 +44,7 @@ void title(){
     cout << "\n\tDate: 09/29/2022";                                                                 // Output Date in new line with tab
     cout << "\n\tLab: Week 5 Lab";                                                                  // Output Lab Number in new line with tab
     cout << "\n\tTitle: Tic Tac Toe Project";                                                       // Output Title in new line with tab
-    cout << "\n\tObjective: Create a tic tac toe board" << RESET;                                   // Output Objective in new line with tab
+    cout << "\n\tObjective: Create a tic tac toe game" << RESET;                                   // Output Objective in new line with tab
 
     cout << BOLDGREEN <<"\n\n\n\n\t|---------|----------|---------|";                               // Chooses the green color for title and outputs a line 
     cout << "\n\t| Tic" << setw (10) << "| Tac" << setw(11) << "| Toe" << setw(6) << "|";   // Outputs Tic Tac Toe title 
