@@ -21,7 +21,6 @@ using namespace std;           // avoid using std::
 
 void title(void);                                               // Declare function title
 void game(void);
-void validator(char);                                           // Declare function validator
 void display(char);                                             // Declay function display
 
 char num[10] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};   // Declare num and create array 1 - 9
