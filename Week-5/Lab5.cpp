@@ -36,7 +36,7 @@ int main() {
 
 void title(){
     cout << BOLDMAGENTA <<"\n\tName: Azizbek Shokosimov";                                           // Output Name in new line in magenta and tabbed format
-    cout << "\n\tDate: 09/29/2022";                                                                 // Output Date in new line with tab
+    cout << "\n\tDate: 09/30/2022";                                                                 // Output Date in new line with tab
     cout << "\n\tLab: Week 5 Lab";                                                                  // Output Lab Number in new line with tab
     cout << "\n\tTitle: Tic Tac Toe Project";                                                       // Output Title in new line with tab
     cout << "\n\tObjective: Create a tic tac toe game" << RESET;                                    // Output Objective in new line with tab
