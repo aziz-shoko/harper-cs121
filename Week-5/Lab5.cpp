@@ -71,23 +71,23 @@ void game() {
         } else {
             x=y;                                                                                        // Sets x equal to y to force 
             char X{ (userNum == num[0] && num[0] != 'O' && num[0] !='X') ?                              // Condition for player X choosing between 1 - 9
-                num[0] = beta, x='b':                                                                   // Once the player chooses the square, the value cannot be changed if its O or X
+                num[0] = beta, x='a':                                                                   // Once the player chooses the square, the value cannot be changed if its O or X
                     (userNum == num[1] && num[1] != 'O' && num[1] !='X') ? 
-                        num[1] = beta, x='b': 
+                        num[1] = beta, x='a': 
                             (userNum == num[2] && num[2] != 'O' && num[2] !='X') ? 
-                                num[2] = beta, x='b': 
+                                num[2] = beta, x='a': 
                                     (userNum == num[3] && num[3] != 'O' && num[3] !='X') ? 
-                                        num[3] = beta, x='b': 
+                                        num[3] = beta, x='a': 
                                             (userNum == num[4] && num[4] != 'O' && num[4] !='X') ? 
-                                                num[4] = beta, x='b': 
+                                                num[4] = beta, x='a': 
                                                     (userNum == num[5] && num[5] != 'O' && num[5] !='X') ? 
-                                                        num[5] = beta, x='b': 
+                                                        num[5] = beta, x='a': 
                                                             (userNum == num[6] && num[6] != 'O' && num[6] !='X') ? 
-                                                                num[6]= beta, x='b': 
+                                                                num[6]= beta, x='a': 
                                                                     (userNum == num[7] && num[7] != 'O' && num[7] !='X') ? 
-                                                                        num[7] = beta, x='b': 
+                                                                        num[7] = beta, x='a': 
                                                                             (userNum == num[8] && num[8] != 'O' && num[8] !='X') ? 
-                                                                                num[8] = beta, x='b': '!'}; 
+                                                                                num[8] = beta, x='a': '!'}; 
             if (x==y) {                                                    // This part is for validating and preventing the override of already set chars
                 alpha--;                                                   // Decreases values of alpha by 1 so the program is forced to loop back to the current players turn 
                 cout << BOLDRED << "\nCannot Override! Try again: ";       // and ask the player to Try again Try again: 
