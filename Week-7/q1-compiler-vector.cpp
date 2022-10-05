@@ -7,24 +7,25 @@ csc121
 */
 
 #include <iostream>
-using namespace std;
+#include <vector>
+using namespace std; 
 
 int protectData(string);
-int total, userNum, userNumbers[10], i=0;
-string input="y";
+
+int total{}, userNum{-1};
+vector<int> nums; 
+string input{"y"};
 
 int main() {
     while ( input == "y") {
         total += protectData(input);
     }
+    cout << total << endl;
 
-    int getArrayLength = sizeof(userNumbers) / sizeof(int);
-    for (int j = 0; j < getArrayLength; j++) {
-        int u = j;
-        u++;
-        cout << "User #: "<< u << " Score: "<< userNumbers[j] << endl;
+    for (int j = 0; j < nums.size(); j++) {
+        cout << nums[j] << endl;
+
     }
-    cout << "\nTotal Score: " << total << endl;
 }
 
 int protectData(string) {
@@ -40,15 +41,17 @@ int protectData(string) {
             cout << "Enter valid number! (1 - 100): ";
             cin >> userNum;
         }
-        userNumbers[i] = userNum;
-        i++;
     } 
-
-
+    nums.push_back(userNum);
     input = "k";
     while ( input != "n" && input != "y" ) {
         cout << "Would like to repeat? (y/n): ";
         cin >> input;
     }
+    
     return userNum;
 }
+
+
+
+
