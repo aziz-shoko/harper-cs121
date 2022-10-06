@@ -29,19 +29,15 @@ int main() {
 }
 
 int protectData(string) {
-    userNum = -1;
-    while ( userNum < 0 || userNum > 100) {
-        cout << "Enter your score: ";
+    cout << "Enter your score: ";
+    cin >> userNum;
+    while (userNum < 0 || userNum > 100 || cin.fail()) {
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cout << "Enter valid number! (1 - 100): ";
         cin >> userNum;
-        while (userNum < 0 || userNum > 100 || cin.fail()) {
-            while (cin.fail()) {
-                cin.clear();
-                cin.ignore();
-            }
-            cout << "Enter valid number! (1 - 100): ";
-            cin >> userNum;
-        }
-    } 
+    }
+
     nums.push_back(userNum);
     input = "k";
     while ( input != "n" && input != "y" ) {
