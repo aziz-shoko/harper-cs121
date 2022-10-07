@@ -1,7 +1,7 @@
 /*
 Azizbek Shokosimov
 Week 7 Q2
-Protect Data
+Sorting names and finding common letters
 10/07/2022
 csc121
 */
