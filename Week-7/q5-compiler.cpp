@@ -10,10 +10,16 @@ csc121
 #include <random> 
 #include<ctime>
 using namespace std;
+
+void randGen(void);
  
 int main()
 {
- default_random_engine engine{ static_cast<unsigned int>(time(0)) };
- uniform_int_distribution<unsigned int> randNum{ 1, 1000 };
- cout << "\n\t" << randNum(engine) << endl;
+ randGen();
+}
+
+void randGen(void) {
+    default_random_engine engine{ static_cast<unsigned int>(time(0)) };
+    uniform_int_distribution<unsigned int> randNum{ 1, 1000 };
+    cout << "\n\t" << randNum(engine) << endl;
 }
