@@ -1,7 +1,7 @@
 /*
 Azizbek Shokosimov
 Week7 Q4
-Number Palindrome
+Using while loops simulate a clock
 10/8/2022
 csc121 
 */
