@@ -21,7 +21,7 @@ int main() {
     cout << "Random 1 to 100: ";
     while ( i < 20 ) {
         num = randNum(engine);
-        if ( num > 0 && num <= 100) {
+        if (num <= 100) {
             cout << num << " ";
             i++;
         }
@@ -31,7 +31,7 @@ int main() {
     cout << "\nRandom 1 to 12: ";
     while ( i < 20 ) {
         num = randNum(engine);
-        if ( num > 0 && num <= 12) {
+        if (num <= 12) {
             cout << num << " ";
             i++;
         }
@@ -41,7 +41,7 @@ int main() {
     cout << "\nRandom 1 to 6: ";
     while ( i < 20 ) {
         num = randNum(engine);
-        if ( num > 0 && num <= 6) {
+        if (num <= 6) {
             cout << num << " ";
             i++;
         }
@@ -51,7 +51,7 @@ int main() {
     cout << "\nRandom 1 to 4: ";
     while ( i < 20 ) {
         num = randNum(engine);
-        if ( num > 0 && num <= 4) {
+        if (num <= 4) {
             cout << num << " ";
             i++;
         }
