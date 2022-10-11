@@ -16,7 +16,7 @@ vector<char> phrase_1{ 'c','o','r','e',' ','h', 'y','d','r','a','t','i','o','n',
 vector<char> phrase_1x{ 'x','x','x','x',' ','x','x','x','x','x','x','x','x','x',' ','x','x','x','x','x','x','x','x','x','x' };
 
 vector<char> phrase_2{ 'k','i','r','k','l','a','n','d',' ','p','u','r','i','f','i','e','d',' ','w','a','t','e','r' };
-vector<char> phrase_2x{ 'x','x','x','x','x','x','x','x',' ','x','x','x','x','x','x','x','x',' ','x','x','x','x' };
+vector<char> phrase_2x{ 'x','x','x','x','x','x','x','x',' ','x','x','x','x','x','x','x','x',' ','x','x','x','x','x' };
 
 vector<char> phrase_3{ 'n','a','t','u','r','a','l',' ','a','r','t','i','s','a','n',' ','w','a','t','e','r' };
 vector<char> phrase_3x{ 'x','x','x','x','x','x','x',' ','x','x','x','x','x','x','x',' ','x','x','x','x','x' };
@@ -30,19 +30,81 @@ vector<char> phrase_5x{ 'x','x','x','x','x','x',' ','x','x','x','x',' ','x','x',
 vector<char> phrase{};
 vector<char> phraseX{};
 
+char guess();
+bool match(char);
 void phrasePicker(void);
-void print(vector<char>);
+void display(vector<char>);
+
+char userInput{};
+int alpha{0}, p1{}, p2{};
 
 int main() {
     phrasePicker();
-    print(phrase);
-    print(phraseX);
+    display(phraseX);
+
+    while (true) {
+        char userGuess = guess();
+        char t = match(userGuess);
+        if ( t == false ) {
+            cout << "No letters revealed!" << endl;
+        }
+        display(phraseX);
+        alpha++;
+
+        bool full = true;
+        for ( char i: phraseX) {
+            if ( i == 'x' ) {
+                full = false;
+            }
+        }
+        if ( full && p1 > p2 ) {
+            cout << "Player 1 wins! With a score of " << p1 << " to " << p2 << endl;
+            break;
+        } else if ( full && p1 < p2 ) {
+            cout << "Player 2 wins! With a score of " << p2 << " to " << p1 << endl;
+            break;
+        } else if ( full && p1 == p2 ) {
+            cout << "Tie! With a scores of " << p1 << " and " << p2 << endl;
+            break;
+        }
+    }
 } 
 
-void print(vector<char> p){
-    for ( char i: p) {
+char guess() {
+    cout << "Player " << alpha%2+1 << " choose a letter: ";
+    char x{};
+    cin >> x;
+
+    return x;
+}
+
+bool match(char userGuess) {
+    int j = 0;
+    bool match = false;
+    for ( char k : phrase) {
+        if ( userGuess == k && phraseX[j] == 'x') {
+            if ( alpha%2+1 == 1 ) {
+                p1++;
+            } else {
+                p2++;
+            }
+            match = true;
+            phraseX[j] = userGuess;
+        }
+        j++;
+    }
+    if ( match ) {
+        cout << "Match Found! " << endl;
+    }
+    return match;
+}
+
+void display(vector<char> phrase){
+    for ( char i: phrase) {
         cout << i;
     }
+    cout << "\nPlayer 1 score: " << p1;
+    cout << "\nPlayer 2 score: " << p2;
     cout << "\n";
 }
 
