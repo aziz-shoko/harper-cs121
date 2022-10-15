@@ -1,5 +1,7 @@
+
+
 #include <iostream> 
-#include <vector>															//need vector header to use vectors
+#include <vector>															
 using namespace std;
 
 
@@ -10,14 +12,14 @@ int main() {
 		repeat = false;											
 		cout << "Please enter your word : ";
 		cin >> word;
-		cin.ignore(numeric_limits<streamsize> :: max(), '\n');								//ignores cin value
+		cin.ignore(numeric_limits<streamsize> :: max(), '\n');								
 		try {
-			cout << "\nThe 6th letter of your word is : '"									//it will try to evaluate word.at(5). if it works,
-				<< word.at(5) << "'.\n";													//the statement will be printed out
+			cout << "\nThe 6th letter of your word is : '"									
+				<< word.at(5) << "'.\n";													
 		}
 		catch (out_of_range) {
-			repeat = true;																	//if try does not work and we catch an outofrange error
-			cout << "\nYour word isn't long enough for our purposes.\n"						//this statement is printed
+			repeat = true;																	
+			cout << "\nYour word isn't long enough for our purposes.\n"						
 				<< "Please try again with a longer word...\n";
 		}
 	}
