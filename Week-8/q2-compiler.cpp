@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     try {
-    int age = 15;
+        int age = 15;
     if (age >= 18) {
         cout << "Access granted - you are old enough.";
     } else {
@@ -11,7 +11,7 @@ int main() {
     }
     }
     catch (int myNum) {
-    cout << "Access denied - You must be at least 18 years old.\n";
-    cout << "Age is: " << myNum;
+        cout << "Access denied - You must be at least 18 years old.\n";
+        cout << "Age is: " << myNum;
     }
 }
