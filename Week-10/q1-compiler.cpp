@@ -24,6 +24,7 @@ ios::in - reads text from the file.
 using namespace std;
 
 int main() {
-    ofstream file ("names.txt");
-    file << "Azizbek Shokosimov";
+    ofstream file ("names.txt");            // opens file names.txt, if it already exists, it then creates it
+    file << "Azizbek Shokosimov";           // outputs the text into the file
+    file.close();                           // closefile
 }
