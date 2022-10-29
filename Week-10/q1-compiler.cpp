@@ -25,12 +25,13 @@ ios::in - reads text from the file.
 using namespace std;
 
 int main() {
-    string filename{};
-    cout<< "Enter file name: ";
-    cin >> filename;
+    string filename{};                     // declare string filename
+    cout<< "Enter file name: ";            // ask for filename
+    cin >> filename;                       // store in filename var
 
-    ofstream file (filename, ios::app);    // opens file names.txt, if it already exists, it then creates it
-    if (!file.is_open()) {
+    // file stands for the object name, and filename is the actual filename
+    ofstream file (filename, ios::app);    // opens file with value filename, if it already exists, it then creates it
+    if (!file.is_open()) {                 // if it fails to open, cout the text in quotes
         cout << "File couldn't be opened";
     }
 
