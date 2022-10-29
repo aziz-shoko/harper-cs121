@@ -30,4 +30,10 @@ int main() {
 
         cout << "Saved!\n";                                                 // cout message in text
     }
+
+    fstream file("employee.txt", ios::in);
+    string emails{};
+    while (getline(file, emails)) {
+        cout << emails << endl;
+    }
 }
