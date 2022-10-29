@@ -9,7 +9,7 @@ csc121
 /*
 The ofsteam needs fstream fileheader
 Ofstream is used to create and write into files
-The synxtax for opening a file: void open(const char *filename, ios::openmode mode);
+The syntax for opening a file: void open(const char *filename, ios::openmode mode);
 ofstream somename ("filename", argument);  this opens file
 file.close(); closes file and is optional for c++11
 ios::out -  overrides previous text
