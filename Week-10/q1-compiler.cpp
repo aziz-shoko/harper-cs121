@@ -21,10 +21,19 @@ ios::in - reads text from the file.
 
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
 int main() {
-    ofstream testfile ("names.txt", ios::app);    // opens file names.txt, if it already exists, it then creates it
-    testfile << "\nAzizbek Shokosimov";           // outputs the text into the file
-    testfile.close();                             // closefile
+    string filename{};
+    cout<< "Enter file name: ";
+    cin >> filename;
+
+    ofstream file (filename, ios::app);    // opens file names.txt, if it already exists, it then creates it
+    if (!file.is_open()) {
+        cout << "File couldn't be opened";
+    }
+
+    file << "\nAzizbek Shokosimov";           // outputs the text into the file
+    file.close();                             // closefile
 }
