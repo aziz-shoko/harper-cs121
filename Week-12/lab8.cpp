@@ -1,7 +1,7 @@
 /*
 Azizbek Shokosimov
-Week11 Q1
-Use pointers
+Lab8
+Do lab8
 11/6/2022
 csc121
 */
@@ -60,7 +60,6 @@ int main() {                                                                    
 
             cout << "\nBalance: " << myObj.getBalance() << "\n\n";                  // display method
         } else if ( userInput == 3 ) {                                              // condition for displaying balance
-            double userWithdraw{};
             cout << "\nUsername: " << myObj.getName();                              // display private attributes
             cout << "\nID: " << myObj.getID();
             cout << "\nBalance: " << myObj.getBalance() << "\n\n";
