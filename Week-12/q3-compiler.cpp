@@ -13,5 +13,6 @@ using namespace std;
 int main() {
     bmwData carObj;                                     // create object carObj
 
-    carObj.display();                                   // call function display
+    carObj.setter();
+    carObj.getter();                                   // call function display
 }
