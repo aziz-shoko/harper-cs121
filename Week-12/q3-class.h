@@ -1,12 +1,18 @@
-#include <iostream>                         // file headers
+#include <iostream>                             // file headers
 using namespace std;
 
-class publicData {                          // class name publicData
+class bmwData {                                 // class name publicData
     private:   
-        string bmw{"BMW-2023"};             // public data var carRelease
+        string bmw{"xxxxxxx"};                  // private datas
+        string release{"xxxxxxxxxxxxx"}; 
 
     public:
-        string display() {                  // function display, returns the value of bmw
-            return bmw;
+        void setter() {                         // function for setting values
+            bmw = "BMW-2023";
+            release = "February 1st, 2023";
         }
+        void getter() {                        // function display, shows values of private data
+            cout << "Cars 2023: " << bmw;
+            cout << "\nRelease data: " << release << endl;
+        } 
 };
