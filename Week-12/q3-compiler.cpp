@@ -7,7 +7,7 @@ csc121
 */
 
 #include <iostream>                                     // file hearders
-#include "q2-class.h"                                   // call file q2-class.h
+#include "q3-class.h"                                   // call file q2-class.h
 using namespace std;
 
 int main() {
