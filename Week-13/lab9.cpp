@@ -27,7 +27,7 @@ void display(char);                                             // Declay functi
 void restartGame();                                             // Declare function restartGame
 
 char num[10] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};   // Declare num and create array 1 - 9
-char userNum{}, beta{}, x{'a'}, y{'b'}, z{'c'};                 // Declare userNum, beta, x, b variables
+char userNum{}, beta{}, x{'a'}, y{'b'};                 // Declare userNum, beta, x, b variables
 int alpha{1};                                                   // Declare variable alpha
 string userInput{};                                             // Declare variable userInput
 
@@ -36,14 +36,14 @@ TTT myObj(" ", 0, 0, 0);
 int main() {
     myObj.recordFile();
     title();                                                // call function title
-    while (z == 'c') {
+    while (true) {
         display(userNum);                                       // call function display and pass on var null (silences too few arguments error)
         game();                                                 // call function game
     }
 }
 
 void title(){
-    cout << BOLDMAGENTA <<"\n\tName: " << playerName;                                               // Output Name in new line in magenta and tabbed format
+    cout << BOLDMAGENTA <<"\n\tName: " << myObj.playerName;                                         // Output Name in new line in magenta and tabbed format
     cout << "\n\tDate: 10/12/2022";                                                                 // Output Date in new line with tab
     cout << "\n\tLab: Week 9 Lab";                                                                  // Output Lab Number in new line with tab
     cout << "\n\tTitle: Tic Tac Toe Project";                                                       // Output Title in new line with tab
@@ -150,12 +150,11 @@ void display(char) {
     }
 }
 
-void restartGame() {
-    char userChoice;
+void restartGame() {                                                                // function for restarting the game
+    char userChoice;                                                            
     cout << "New Game? y/n: ";
     cin >> userChoice;
     if (userChoice == 'y') {
-        z = 'c';
         num[0] = '1'; num[1] = '2'; num[2] = '3'; num[3] = '4'; num[4] = '5'; num[5] = '6'; num[6] = '7'; num[7] = '8'; num[8] = '9';
         myObj.getResults();
     } else if ( userChoice == 'n') {

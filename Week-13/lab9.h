@@ -6,10 +6,6 @@ using namespace std;
 
 #define BOLDGREEN   "\033[1m\033[32m"      /* Bold Green */
 #define RESET       "\033[0m"              /* End Color */
-
-string playerName;
-vector<int> recordHolder{0, 0, 0}, readVictor{0, 0, 0};
-
 class TTT {
     private: 
         string fileName;
@@ -18,6 +14,9 @@ class TTT {
         int totalTies;
 
     public:
+        string playerName;
+        vector<int> recordHolder{0, 0, 0}, readVector{0, 0, 0};
+
         TTT (string a, int b, int c, int d) {
             fileName = a;
             totalWins = b;
@@ -88,15 +87,15 @@ void TTT::getResults() {
             int i = 0;
             string token;
             while (ss >> token) {
-                readVictor[i] = stoi(token);
+                readVector[i] = stoi(token);
                 i++;
             }
             
         }
     }
-    setTotalWins(readVictor[0]);
-    setTotalLosses(readVictor[1]);
-    setTotalTies(readVictor[2]);
+    setTotalWins(readVector[0]);
+    setTotalLosses(readVector[1]);
+    setTotalTies(readVector[2]);
 
     cout << "\nWins: " << getTotalWins();
     cout << "\nLosses: " << getTotalLosses();
