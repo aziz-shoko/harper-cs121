@@ -152,18 +152,18 @@ void display(char) {
 
 void restartGame() {                                                                // function for restarting the game
     char userChoice;                                                            
-    cout << "New Game? y/n: ";
+    cout << "New Game? y/n: ";                                                      // ask user if they want to reset the game
     cin >> userChoice;
-    if (userChoice == 'y') {
+    if (userChoice == 'y') {                                                        // if yes, then the board is cleared
         num[0] = '1'; num[1] = '2'; num[2] = '3'; num[3] = '4'; num[4] = '5'; num[5] = '6'; num[6] = '7'; num[7] = '8'; num[8] = '9';
+        myObj.getResults();                                                         // and the record of the player is outputted
+    } else if ( userChoice == 'n') {                                                // if no, then the program displays the record and exits
         myObj.getResults();
-    } else if ( userChoice == 'n') {
-        myObj.display();
         exit(0);
     } else {
-        cout << "Invalid!";
+        cout << "Invalid!";                                                             // validator for restarting the game
         cin.clear();                                                                    // Gets rid of the error state messages
         cin.ignore(numeric_limits<streamsize>::max(), '\n');                     // Discard not needed chars
-        restartGame();
+        restartGame();                                                                  // calls back the restartGame function
     }
 }
