@@ -31,7 +31,7 @@ char userNum{}, beta{}, x{'a'}, y{'b'};                 // Declare userNum, beta
 int alpha{1};                                                   // Declare variable alpha
 string userInput{};                                             // Declare variable userInput
 
-TTT myObj(" ", 0, 0, 0);
+TTT myObj(" ", 0, 0, 0);                                        // object create
                                           
 int main() {
     myObj.recordFile();

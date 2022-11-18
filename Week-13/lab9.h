@@ -25,15 +25,15 @@ class TTT {                                 // Class named TTT
             totalTies = d;
         }
 
-    void recordFile();                                              // declare all methods here (the setters and getters too)
-    void writeResults(char);
-    void getResults();
-    void setTotalWins(int);
-    int getTotalWins();
-    void setTotalLosses(int);
-    int getTotalLosses();
-    void setTotalTies(int);
-    int getTotalTies();
+        void recordFile();                                              // declare all methods here (the setters and getters too)
+        void writeResults(char);
+        void getResults();
+        void setTotalWins(int);
+        int getTotalWins();
+        void setTotalLosses(int);
+        int getTotalLosses();
+        void setTotalTies(int);
+        int getTotalTies();
 };
 
 void TTT::recordFile() {
