@@ -1,36 +1,36 @@
-#include <iostream>
-using namespace std;
+#include <iostream>                                             // file headers
+using namespace std;                                            // namespace to avoid std:: 
 
-class student {
-    private:
-        string name{"a"};
+class student {                                                 // declare class std
+    private:                                                    // private specifier
+        string name{"a"};                                       // private datas
         double gpa{0.1};
 
-    public:
-        bool approval() {
+    public:                                                     // public specifier
+        bool approval() {                                       // boolean method for gpa
             if (gpa >  3.0) {
                 return true;
             } 
             return false;
         }
-        void display() {
-            string status = (approval()) ? "Pass" : "Fail";
-            cout << "\nName: " << getName();
+        void display() {                                        // display method for displaying the datas
+            string status = (approval()) ? "Pass" : "Fail";     // ternary condition for pass of fail string
+            cout << "\nName: " << getName();                    // output the private and public datas
             cout << "\nGPA: " << getGpa(); 
             cout << "\nStatus: " << status;
         }
-        double getGpa() {
+        double getGpa() {                                       // getter getGpa
             return gpa;
         }
-        void setGpa() {
+        void setGpa() {                                         // gpa setter
             gpa = 4.0;
         }
 
-        string getName() {
+        string getName() {                                      // name getter
             return name;
         }
 
-        void setName() {
+        void setName() {                                        // name setter
             name = "Azizbek";
         }
 };
