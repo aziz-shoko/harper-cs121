@@ -1,8 +1,8 @@
 /*
 Azizbek Shokosimov
-Week10 Q1
+Week14
 TTT track wins and losses in some file
-10/29/2022
+11/20/2022
 csc121
 */
 
@@ -16,11 +16,11 @@ using namespace std;           // avoid using std::
 tttGame obj;                                                    // object create from q4-game.h file
                                           
 int main() {
-    myObj.recordFile();
-    obj.title();                                                // call function title
-    while (true) {
-        obj.display('z');                                       // call function display and pass on var null (silences too few arguments error)
-        obj.game();                                                 // call function game
+    myObj.recordFile();                                         // call record file method to create the player file
+    obj.title();                                                // call method title
+    while (true) {                                              // infinite loop
+        obj.display('z');                                       // call method display and pass on meaningless letter z
+        obj.game();                                             // call call method game
     }
 }
 
