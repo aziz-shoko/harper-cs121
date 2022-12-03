@@ -1,0 +1,5 @@
+FROM arm64v8/gcc:4.9
+COPY . /ttt
+WORKDIR /ttt
+RUN g++ -o game.compiler compiler.cpp -std=c++11
+CMD ["./game.compiler"]
