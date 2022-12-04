@@ -25,7 +25,7 @@ class TTT {                                 // Class named TTT
 
     public:                                                         // section for public datas and methods
         string playerName;                                          // public data name
-        vector<int> recordHolder{0, 0, 0}, readVector{0, 0, 0};     // declare vector recordHolder
+        vector<int> recordHolder{0, 0, 0};                          // declare vector recordHolder
 
         TTT (string a, int b, int c, int d) {                       // Constructor to initialize values
             fileName = a;
@@ -69,8 +69,8 @@ void TTT::writeResults(char var) {                              // method for wr
     file.close();
 }
 
-void TTT::getResults() {                                        // method for reading the data from file
-    cout << BOLDGREEN << "\nWins: " << readVector[0];          // output the results
-    cout << "\nLosses: " << readVector[1];
-    cout << "\nTies: " << readVector[2] << "\n\n" << RESET;
+void TTT::getResults() {                                         // method for reading the data from file
+    cout << BOLDGREEN << "\nWins: " << recordHolder[0];          // output the results
+    cout << "\nLosses: " << recordHolder[1];
+    cout << "\nTies: " << recordHolder[2] << "\n\n" << RESET;
 }
