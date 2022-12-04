@@ -79,16 +79,15 @@ void tttGame::game() {
 }
 
 void tttGame::display(char) {
-    auto displayVar = [=]() {
+    auto displayVar = [=]() {                                                                                   // lambda function
         cout << BOLDRED << "\n\n\n\n\t" << num[0] << setw(10) << num[1] << setw(10) << num[2];                   // Outputs evenly spaced 1, 2, 3 in red
         cout << "\n\n\n\n\t" << num[3] << setw(10) << num[4] << setw(10) << num[5];                              // Outputs evenly spaced 4, 5, 6 in red
         cout << "\n\n\n\n\t" << num[6] << setw(10) << num[7] << setw(10) << num[8] << "\n\n" << RESET << endl;   // Outputs evenly spaced 7, 8, 9 in red
     };
+    displayVar();                                                                                                      // call lambda function
 
-    displayVar();
-
-    auto restartGame = [=]() {
-    char userChoice;                                                            
+    auto restartGame = [=]() {                                        // new lambda function
+        char userChoice;                                                              
         cout << "New Game? y/n: ";                                                      // ask user if they want to reset the game
         cin >> userChoice;
         if (userChoice == 'y') {                                                        // if yes, then the board is cleared
@@ -101,14 +100,14 @@ void tttGame::display(char) {
         } else {
             cout << "Invalid!";                                                             // validator for restarting the game
             cin.clear();                                                                    // Gets rid of the error state messages
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');                     // Discard not needed chars
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');                            // Discard not needed chars
         }
     };
 
     if (num[0] == beta && num[1] == beta && num[2] == beta) {                       // Win condition for squares 1, 2, 3
         cout << BOLDGREEN << "Congratulations! Player " << beta << " wins!\n\n";
-        myObj.writeResults(beta);
-        restartGame();                                                        
+        myObj.writeResults(beta);                                                   // call writeRresults method
+        restartGame();                                                              // call lambda function      
     } else if (num[3] == beta && num[4] == beta && num[5] == beta) {                // Win condition for sqaures 2, 4, 6
         cout << BOLDGREEN << "Congratulations! Player " << beta << " wins!\n\n";
         myObj.writeResults(beta);
@@ -143,4 +142,3 @@ void tttGame::display(char) {
         restartGame();
     }
 }
-

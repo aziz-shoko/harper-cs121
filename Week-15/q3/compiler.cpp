@@ -1,7 +1,7 @@
 /*
 Azizbek Shokosimov
 Week15 Q3
-Add some new function to TTT
+Add some new function to TTT (Added lambda function)
 12/03/2022
 csc121
 */

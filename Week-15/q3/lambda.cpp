@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-void forEach (const vector<int>& values, void(*func)(int)) {
+void forEach (vector<int>& values, void(*func)(int)) {
     for (int value : values) {
         func(value);
     }

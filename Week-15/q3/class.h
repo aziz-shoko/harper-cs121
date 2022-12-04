@@ -70,25 +70,7 @@ void TTT::writeResults(char var) {                              // method for wr
 }
 
 void TTT::getResults() {                                        // method for reading the data from file
-    string temp;                                                // declare string temp
-    fstream file (fileName, ios::in);                           // open player file
-    string token;                                               // declare a string var token
-    while (getline(file, temp)) {                               // condition for looping through lines
-        if (temp != " ") {                                      // loops until last line
-            stringstream ss(temp);                              // breakup the last obtained string into separate strings separated by spaces
-            int i = 0;                                          // declare i for looping purposes
-            string token;                                       // declare string to store the new split string
-            while (ss >> token) {                               // while streaming into token
-                readVector[i] = stoi(token);               // replace the readVector with new value (stoi converts string into int)
-                i++;                                            // increment i by 1 for loopings purposes
-            }
-            
-        }
-    }
-
     cout << BOLDGREEN << "\nWins: " << readVector[0];          // output the results
     cout << "\nLosses: " << readVector[1];
     cout << "\nTies: " << readVector[2] << "\n\n" << RESET;
-
-    file .close();                                              // close file
 }
