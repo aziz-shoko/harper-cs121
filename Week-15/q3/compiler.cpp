@@ -1,15 +1,11 @@
 /*
 Azizbek Shokosimov
-Week14
-TTT track wins and losses in some file
-11/20/2022
+Week15 Q3
+Add some new function to TTT
+12/03/2022
 csc121
 */
 
-#include <iostream>            // cout and cin library
-#include <iomanip>             // setw library
-#include <unistd.h>            // file header for usleep
-#include <fstream>             // fstream file header
 #include "game.h"           // file header for the game mechanics of the TTT game 
 using namespace std;           // avoid using std::
 

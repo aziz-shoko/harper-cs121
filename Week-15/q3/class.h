@@ -3,6 +3,9 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <iomanip>             // setw library
+#include <unistd.h>            // file header for usleep
+#include <fstream>             // fstream file header
 using namespace std;
 
 //the following are UBUNTU/LINUX, and MacOS ONLY terminal color codes.
@@ -34,12 +37,6 @@ class TTT {                                 // Class named TTT
         void recordFile();                                              // declare all methods here (the setters and getters too)
         void writeResults(char);
         void getResults();
-        void setTotalWins(int);
-        int getTotalWins();
-        void setTotalLosses(int);
-        int getTotalLosses();
-        void setTotalTies(int);
-        int getTotalTies();
 };
 
 void TTT::recordFile() {
@@ -88,38 +85,10 @@ void TTT::getResults() {                                        // method for re
             
         }
     }
-    setTotalWins(readVector[0]);                                // change the wins value based on the readVector token
-    setTotalLosses(readVector[1]);                              // change the losses value
-    setTotalTies(readVector[2]);                                // change the ties value
 
-    cout << "\nWins: " << getTotalWins();                       // output the results
-    cout << "\nLosses: " << getTotalLosses();
-    cout << "\nTies: " << getTotalTies() << "\n\n";
+    cout << BOLDGREEN << "\nWins: " << readVector[0];          // output the results
+    cout << "\nLosses: " << readVector[1];
+    cout << "\nTies: " << readVector[2] << "\n\n" << RESET;
 
     file .close();                                              // close file
 }
-
-void TTT::setTotalWins(int a) {                                 // method for setting totalWins private value 
-    totalWins = a;
-}
-
-void TTT::setTotalLosses(int a) {                               // method for setting totalLosses private value
-    totalLosses = a;
-}
-
-void TTT::setTotalTies(int a) {                                 // method for setting totalTies private value
-    totalTies = a;
-}
-
-int TTT::getTotalWins() {                                       // getter method for seeing the totalWins
-    return totalWins;
-}
-
-int TTT::getTotalLosses() {                                     // getter method for seeing the totalLosses
-    return totalLosses;
-}
-
-int TTT::getTotalTies() {                                       // getter method for getting the totalTies
-    return totalTies;
-}
-

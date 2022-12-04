@@ -1,17 +1,7 @@
-#include <iostream>
 #include "class.h"
 using namespace std;
 
-//the following are UBUNTU/LINUX, and MacOS ONLY terminal color codes.
-//visit this for more color codes: https://stackoverflow.com/questions/9158150/colored-output-in-c
-#define RESET       "\033[0m"              /* End Color */
-#define BOLDMAGENTA "\033[1m\033[35m"      /* Bold Magenta */
-#define BOLDRED     "\033[1m\033[31m"      /* Bold Red */
-#define BOLDGREEN   "\033[1m\033[32m"      /* Bold Green */
-#define BOLDYELLOW  "\033[1m\033[33m"      /* Bold Yellow */
-
 TTT myObj(" ", 0, 0, 0);                                        // object create from q4-class.h file
-
 class tttGame {
     public:
         char num[10] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};   // Declare num and create array 1 - 9
@@ -22,8 +12,6 @@ class tttGame {
         void title(void);                                               // Declare function title
         void game(void);                                                // Declare function game
         void display(char);                                             // Declay function display
-        void restartGame();                                             // Declare function restartGame
-
 };
 
 void tttGame::title() {
@@ -91,9 +79,31 @@ void tttGame::game() {
 }
 
 void tttGame::display(char) {
-    cout << BOLDRED << "\n\n\n\n\t" << num[0] << setw(10) << num[1] << setw(10) << num[2];                   // Outputs evenly spaced 1, 2, 3 in red
-    cout << "\n\n\n\n\t" << num[3] << setw(10) << num[4] << setw(10) << num[5];                              // Outputs evenly spaced 4, 5, 6 in red
-    cout << "\n\n\n\n\t" << num[6] << setw(10) << num[7] << setw(10) << num[8] << "\n\n" << RESET << endl;   // Outputs evenly spaced 7, 8, 9 in red
+    auto displayVar = [=]() {
+        cout << BOLDRED << "\n\n\n\n\t" << num[0] << setw(10) << num[1] << setw(10) << num[2];                   // Outputs evenly spaced 1, 2, 3 in red
+        cout << "\n\n\n\n\t" << num[3] << setw(10) << num[4] << setw(10) << num[5];                              // Outputs evenly spaced 4, 5, 6 in red
+        cout << "\n\n\n\n\t" << num[6] << setw(10) << num[7] << setw(10) << num[8] << "\n\n" << RESET << endl;   // Outputs evenly spaced 7, 8, 9 in red
+    };
+
+    displayVar();
+
+    auto restartGame = [=]() {
+    char userChoice;                                                            
+        cout << "New Game? y/n: ";                                                      // ask user if they want to reset the game
+        cin >> userChoice;
+        if (userChoice == 'y') {                                                        // if yes, then the board is cleared
+            num[0] = '1'; num[1] = '2'; num[2] = '3'; num[3] = '4'; num[4] = '5'; num[5] = '6'; num[6] = '7'; num[7] = '8'; num[8] = '9';
+            myObj.getResults();                                                         // and the record of the player is outputted
+            displayVar();
+        } else if ( userChoice == 'n') {                                                // if no, then the program displays the record and exits
+            myObj.getResults();
+            exit(0);
+        } else {
+            cout << "Invalid!";                                                             // validator for restarting the game
+            cin.clear();                                                                    // Gets rid of the error state messages
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');                     // Discard not needed chars
+        }
+    };
 
     if (num[0] == beta && num[1] == beta && num[2] == beta) {                       // Win condition for squares 1, 2, 3
         cout << BOLDGREEN << "Congratulations! Player " << beta << " wins!\n\n";
@@ -134,20 +144,3 @@ void tttGame::display(char) {
     }
 }
 
-void tttGame::restartGame() {                                                                // function for restarting the game
-    char userChoice;                                                            
-    cout << "New Game? y/n: ";                                                      // ask user if they want to reset the game
-    cin >> userChoice;
-    if (userChoice == 'y') {                                                        // if yes, then the board is cleared
-        num[0] = '1'; num[1] = '2'; num[2] = '3'; num[3] = '4'; num[4] = '5'; num[5] = '6'; num[6] = '7'; num[7] = '8'; num[8] = '9';
-        myObj.getResults();                                                         // and the record of the player is outputted
-    } else if ( userChoice == 'n') {                                                // if no, then the program displays the record and exits
-        myObj.getResults();
-        exit(0);
-    } else {
-        cout << "Invalid!";                                                             // validator for restarting the game
-        cin.clear();                                                                    // Gets rid of the error state messages
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');                     // Discard not needed chars
-        restartGame();                                                                  // calls back the restartGame function
-    }
-}
