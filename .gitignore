@@ -1,3 +1,4 @@
 *.compiler
 .vscode
 *.txt
+*.out
