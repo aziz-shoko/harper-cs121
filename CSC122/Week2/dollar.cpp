@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 using namespace std;
 
 char userInput[100];
@@ -17,7 +18,7 @@ int main() {
         cin >> userInput;   
         if(currencyInput(userInput)) {                                                      // condition if currencyInput function returns true
             cout << "\nThe currency is valid! " << endl;                                    
-            cout << "Currency double format: " << doubleConvertor(userInput) << endl;       // call double convertor function if the dollar input is validated
+            cout << "Currency double format: " << fixed << setprecision(2) << doubleConvertor(userInput) << endl;       // call double convertor function if the dollar input is validated
         } else {    
             cout << "\nThe currency is invalid! " << endl;                                  // declare invalid if the currencyInput function returns false
         }
