@@ -6,5 +6,6 @@ int main() {
 	List obj;
 	obj.Input();
 	obj.Display();
-	
+	obj.Input2();
+	obj.Display();
 }

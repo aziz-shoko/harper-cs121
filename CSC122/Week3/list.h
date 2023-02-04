@@ -8,16 +8,20 @@ class List
 {
 	private:
 		double* data;
+		double* copyData;
 		long size;
+		long newSize{0};
+		int var{0};
 
 	public:
 		enum {MAX_SIZE=1000};
 		
 		// void SetValue(double value, long pos);
 		// double GetValue(long pos);
-		void Resize(long numValues);
+		void Resize(long numValues, int var);
 		void Clear();
 		void Input();
+		void Input2();
 		void Display();
         double Average();
         double Medium();
@@ -34,18 +38,42 @@ void List::Clear()
 	}
 }
 
-void List::Resize(long numValues)
+void List::Resize(long numValues, int var)
 {
 	try {
 		if (numValues < 1 || numValues > MAX_SIZE) {
 			throw "Error! Invalid list size specified.";
 		}
-		Clear();
-		data=new double[numValues];
-		if (data==nullptr) {
-			throw "Error! Could not allocate memory for list.";
+		if (var == 0) {
+			Clear();
+			data=new double[numValues];									// allocate memory for data array size of numValues
+			if (data==nullptr) {
+				throw "Error! Could not allocate memory for list.";
+			}
+			size=numValues;
+		} else if (var == 1) {
+			newSize = numValues;
+			copyData = new double[numValues];
+			if (data==nullptr) {
+				throw "Error! Could not allocate memory for list.";
+			}
+			if (newSize <= size) {
+				for (int i = 0; i < newSize; i++) {
+					copyData[i] = data[i];
+				}
+			} else if (newSize > size) {
+				for (int i = 0; i < newSize; i++) {
+					copyData[i] = data[i];
+				}
+				for (int i = size; i < newSize; i++) {
+					double userInput;
+					userInput = ReadValue<double>("Value?: ");
+					copyData[i] = userInput;
+				}
+			}
+			Clear();
+			
 		}
-		size=numValues;
 	}
 	catch (exception& e) {
 		throw "Error! Could not allocate memory for list.";
@@ -71,9 +99,10 @@ void List::Resize(long numValues)
 void List::Input()
 {
 	try {
+		var=0;
 		if (size==0) {
 			long x=ReadValue<long>("Number of values? ");
-			Resize(x);
+			Resize(x, var);
 		}
 	
 		for (double *ptr=data; ptr<data+size; ptr++) {
@@ -87,9 +116,23 @@ void List::Input()
 	
 }
 
+void List::Input2(){
+	try {
+		var = 1;
+		int userInput=ReadValue<int>("Resize array?:\n\n\t1.yes\n\t2.no \n\nUser Input: ");
+		if (userInput == 1) {
+			long x=ReadValue<long>("Number of values? ");
+			Resize(x, var);
+		}
+	} 
+	catch (const char* s) {
+		throw s;
+	}
+}
+
 void List::Display() 
 {
-	if (size > 0) {
+	if (size > 0 && var == 0) {
 		cout << "List values:\n";
 		for (double *ptr=data; ptr<data+size; ptr++) {
 			cout << *ptr << " ";
@@ -102,6 +145,13 @@ void List::Display()
 
         cout << "\nAverage: " << Average() << endl;
         cout << "Medium: " << Medium() << endl;
+
+	} else if (newSize > 0 && var == 1) {
+		cout << "\nNew Size and Copy of Data: \n";
+		for (int i = 0; i < newSize; i++) {
+			cout << copyData[i] << " ";
+		}
+		cout << endl;
 	}
 	else {
 		cout << "List is empty.\n";
