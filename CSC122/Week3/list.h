@@ -20,6 +20,7 @@ class List
 		// double GetValue(long pos);
 		void Resize(long numValues, int var);
 		void Clear();
+		void Clear2();
 		void Input();
 		void Input2();
 		void Display();
@@ -35,6 +36,15 @@ void List::Clear()
 		delete[] data;
 		size=0;
 		data=nullptr;
+	}
+}
+
+void List::Clear2()
+{
+	if (size > 0) {
+		delete[] copyData;
+		newSize=0;
+		copyData=nullptr;
 	}
 }
 
@@ -67,7 +77,7 @@ void List::Resize(long numValues, int var)
 				}
 				for (int i = size; i < newSize; i++) {
 					double userInput;
-					userInput = ReadValue<double>("Value?: ");
+					userInput = ReadValue<double>("New Value to Add?: ");
 					copyData[i] = userInput;
 				}
 			}
@@ -189,4 +199,5 @@ List::List()
 List::~List()
 {
 	Clear();
+	Clear2();
 }
