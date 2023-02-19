@@ -76,4 +76,6 @@ int main() {
             cout << obj;
         }
     }
+
+    obj.Clear();
 }
