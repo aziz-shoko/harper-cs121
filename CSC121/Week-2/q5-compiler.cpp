@@ -28,3 +28,15 @@ int main() {
     string y{firstLetterFirst + firstLetterLast};                                            // Declare y and set its value to first initial combined with last name initial
     cout << "\n\t" << y << first.length() + last.length() << "@whatsInaName.com" << "\n\n";  // Combine variable x with length of first and last name combined
 }
+
+// int x{0}, y{0};
+//     while (x < arrSize) {
+//         if (library[x] == delBook) {
+//             x++;
+//         } else {
+//             library[y] = library[x];
+//             x++;
+//             y++;
+//         }
+//     }
+//     arrSize = y;

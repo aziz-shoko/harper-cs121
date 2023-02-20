@@ -24,7 +24,14 @@ class bookList {
 
 bookList::bookList() {}
 
-bookList::bookList(const bookList& x) {}
+bookList::bookList(const bookList& copy) {
+    arrSize = copy.arrSize;
+    library = new string[arrSize];
+    for (int i = 0; i < arrSize; i++) {
+        library[i] = copy.library[i];
+    }
+
+}
 
 bookList::~bookList() {
     Clear();
@@ -33,7 +40,6 @@ bookList::~bookList() {
 void bookList::Resize(size_t size) {
     Clear();
     library = new string[size];
-    size_t num = sizeof(*library)/sizeof(library[0]);
 }
 
 void bookList::Setter(string* x, size_t size) {
@@ -73,7 +79,19 @@ void bookList::Adder(string userBook) {
     copyLibrary = nullptr;
 }
 
-void bookList::Remover(string bookTitle) {}
+void bookList::Remover(string delBook) {
+    int x{0}, y{0};
+    while (x < arrSize) {
+        if (library[x] == delBook) {
+            x++;
+        } else {
+            library[y] = library[x];
+            x++;
+            y++;
+        }
+    }
+    arrSize = y;
+}
 
 
 ostream& operator<< (ostream& out, bookList& y) {
@@ -84,7 +102,7 @@ ostream& operator<< (ostream& out, bookList& y) {
 int main() {
     int userInput = 0;
     string data[] = {"algebra", "geometry", "chemistry", "physics"};
-    string userBook;
+    string userBook{};
     size_t size = sizeof(data)/sizeof(data[0]);
     bookList obj;
 
@@ -101,6 +119,13 @@ int main() {
             cout << "\nEnter a book name to add: ";
             cin >> userBook;
             obj.Adder(userBook);
+            cout << obj;
+        } else if (userInput == 3) {
+            string delBook;
+            cout << obj;
+            cout << "\nEnter the exact book title to delete from list: ";
+            cin >> delBook;
+            obj.Remover(delBook);
             cout << obj;
         }
     }
