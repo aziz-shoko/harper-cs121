@@ -68,7 +68,6 @@ void bookList::Adder(string userBook) {
     Resize(newSize);
     for (int i = 0; i < newSize; i++) {
         library[i] = copyLibrary[i];
-        cout << library[i] << endl;
     }
     delete[] copyLibrary;
     copyLibrary = nullptr;
@@ -102,7 +101,7 @@ int main() {
             cout << "\nEnter a book name to add: ";
             cin >> userBook;
             obj.Adder(userBook);
-            
+            cout << obj;
         }
     }
 
