@@ -4,10 +4,10 @@ using namespace std;
 #ifndef PERSON
 #define PERSON
 
-class Person {
+class Person {                                      // base class Person and its methods
     protected:
         string name;
-        int socialSecurity;
+        string socialSecurity;
         string birthDate;
     
     public:
@@ -15,17 +15,17 @@ class Person {
         Person();
         virtual void SetType()=0;
         virtual void Input()=0;
+        virtual void Display(ostream& out)=0;
         virtual void SetName(string);
-        virtual void SetSS(int);
+        virtual void SetSS(string);
         virtual void SetBirthdate(string);
-        virtual void Display(ostream& out);
 
         virtual string GetName();
-        virtual int GetSS();
+        virtual string GetSS();
         virtual string GetBirthdate();
 };
 
-class Laborer : public Person {
+class Laborer : public Person {                     // derived class Laborer and its methods
     private:
         string job;
         int ID;
@@ -49,7 +49,7 @@ class Laborer : public Person {
         int GetHours(); 
 };
 
-class Manager : public Person {
+class Manager : public Person {                     // derived class Manager and its methods
     private: 
         string department;
         int ID;
@@ -57,6 +57,7 @@ class Manager : public Person {
     
     public: 
         Manager();
+        void Input();
         void SetType();
         void SetDepartment(string);
         void SetID(int);
@@ -70,13 +71,14 @@ class Manager : public Person {
 
 };
 
-class Owner : public Person {
+class Owner : public Person {                       // derived class Owner and its methods
     private: 
         double percentOwned;
         string ownershipDate;
 
     public: 
         Owner();
+        void Input();
         void SetType();
         void SetOwned(double);
         void SetDate(string);
