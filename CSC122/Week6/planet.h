@@ -3,6 +3,9 @@
 #include <cmath> 
 using namespace std;
 
+
+#ifndef PLANET
+#define PLANET
 class Sphere {                                                      // first class Sphere
     private: 
         double radius;                                              // set radius as a private variable
@@ -70,3 +73,4 @@ ostream& operator<< (ostream& out, Planet& ball) {                              
     out << setw(37) << "Accelaration due to Gravity (m/s^2): " << ball.Accelaration() << endl;
     return out;
 }
+#endif
