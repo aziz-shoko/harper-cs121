@@ -52,14 +52,14 @@ void Laborer::SetType() {
 }
 
 void Laborer::Display(ostream& out) {                           // display function
-    out << "\n        Name: " << GetName() << endl;
-    out << "         SSN: " << GetSS() << endl;
-    out << "   Birthdate: " << GetBirthdate() << endl;
-    out << "    Job Type: " << GetType() << endl;
-    out << "   Job Title: " << GetJob() << endl;
-    out << "          ID: " << GetID() << endl;
-    out << "  Hourly pay: $" << GetPay() << endl;
-    out << "Hours Worked: " << GetHours() << endl;
+    out << "\n             Name: " << GetName() << endl;
+    out << "              SSN: " << GetSS() << endl;
+    out << "        Birthdate: " << GetBirthdate() << endl;
+    out << "         Job Type: " << GetType() << endl;
+    out << "        Job Title: " << GetJob() << endl;
+    out << "      Employee ID: " << GetID() << endl;
+    out << "       Hourly pay: $" << GetPay() << endl;
+    out << "     Hours Worked: " << GetHours() << endl;
 }
 
 string Laborer::GetJob() {
@@ -131,13 +131,13 @@ void Manager::SetType() {
 }
 
 void Manager::Display(ostream& out) {                               // display method for Manager
-    out << "\n      Name: " << GetName() << endl;
-    out << "       SSN: " << GetSS() << endl;
-    out << " Birthdate: " << GetBirthdate() << endl;
-    out << "  Job Type: " << GetType() << endl;
-    out << "Department: " << GetDepartment() << endl;
-    out << "        ID: " << GetID() << endl;
-    out << "    Salary: $" << GetSalary() << endl;
+    out << "\n             Name: " << GetName() << endl;
+    out << "              SSN: " << GetSS() << endl;
+    out << "        Birthdate: " << GetBirthdate() << endl;
+    out << "         Job Type: " << GetType() << endl;
+    out << "       Department: " << GetDepartment() << endl;
+    out << "       Manager ID: " << GetID() << endl;
+    out << "           Salary: $" << GetSalary() << endl;
 }
 
 string Manager::GetDepartment() {

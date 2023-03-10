@@ -5,15 +5,16 @@
 using namespace std;
 
 void Display(vector<Person*>& obj);                             // declare Display function with vector type for its parameter
+void Remove(vector<Person*>& person, string name);
 
 
 int main() {
     vector<Person*> record;                                     // Create a vector to store class pointers (we will be storing instances of class inside this vector)
     int userInput = 0;
 
-    while (userInput != 5) {
+    while (userInput != 6) {
         // While loop to display the user option menus
-        userInput = ReadValue<int>("\nRegister user menu: \n\n\t1. Laborer\n\t2. Manager \n\t3. Owner\n\t4. Display\n\t5. Quit\n\nChoose number option to register: ");
+        userInput = ReadValue<int>("\nRegister user menu: \n\n\t1. Laborer\n\t2. Manager \n\t3. Owner\n\t4. Remove user \n\t5. Display\n\t6. Quit\n\nChoose number option to register: ");
         
         if (userInput == 1) {                                   // choice one Laborer option
             record.push_back(new Laborer);                      // allocate Laborer class and store in vector person
@@ -25,9 +26,14 @@ int main() {
             record.push_back(new Owner);
             record[record.size()-1] -> Input();
         } else if (userInput == 4) {
+            string name;
+            cout << "\nEnter Username to remove: ";
+            cin >> name;
+            Remove(record, name);
+        } else if (userInput == 5) {
             cout << endl;
             Display(record);                                    // call function display to display the elements of stored classes inside the vector person
-        } else if (userInput == 5) {
+        } else if (userInput == 6) {
             break;
         }
     } 
@@ -41,6 +47,17 @@ void Display(vector<Person*>& obj) {
         for (int i = 0; i < len; i++) {                        // for loop to display the elements of vector person
             obj[i]->Display(cout);                              // the -> symbol is simply calling the Display function (calling the function for pointers)
             cout << endl;
+        }
+    }
+}
+
+void Remove(vector<Person*>& person, string name) {
+    for (auto it = person.begin(); it != person.end();) {
+        if ((*it)->GetName() == name) {
+            it = person.erase(it);
+            cout << "\nUser " << name << " is fired! " << endl;
+        } else {
+            it++;
         }
     }
 }
