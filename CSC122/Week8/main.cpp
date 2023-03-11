@@ -17,7 +17,7 @@ int main() {
         userInput = ReadValue<int>("\nRegister user menu: \n\n\t1. Add Person\n\t2. Display List \n\t3. Sort List\n\t4. Remove User \n\t5. Quit\n\nChoose number option to register: ");
         
         if (userInput == 1) {
-            userInput2 = ReadValue<int>("Choose Type of Person to Add: \n\t1. Owner \n\t2. Manager \n\t3. Laborer\n\nChoose number option to register: ");
+            userInput2 = ReadValue<int>("Choose Type of Person to Add: \n\n\t1. Owner \n\t2. Manager \n\t3. Laborer\n\nChoose number option to register: ");
             if (userInput2 == 1) {                                   // choice one Laborer option
                 record.push_back(new Laborer);                      // allocate Laborer class and store in vector person
                 record[record.size()-1] -> Input();                 // address the last element class inside the vector person and call function Input()
