@@ -20,6 +20,7 @@ class Person {                                      // base class Person and its
         virtual void SetSS(string);
         virtual void SetBirthdate(string);
 
+        virtual string GetType()=0;
         virtual string GetName();
         virtual string GetSS();
         virtual string GetBirthdate();
