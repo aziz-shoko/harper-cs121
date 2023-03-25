@@ -4,11 +4,13 @@
 #include<vector>
 using namespace std;
 
-void BubbleSort(vector<int>, int);
-void InsertSort(vector<int>);
+// declare functions
+void BubbleSort(vector<int>&, int);
+void InsertSort(vector<int>&);
 void Generator(int, vector<int>&);
 void Display(vector<int>);
 
+// declare empty functions
 vector<int> hundred;
 vector<int> thousand;
 vector<int> fiveThousand;
@@ -17,12 +19,14 @@ vector<int> fiftyThousand;
 
 int main() {
     int size = 0;
+    // Call Generator function to populate the vector is the specified number of elements
     Generator(100, hundred);
     Generator(1000, thousand);
     Generator(5000, fiveThousand);
     Generator(10000, tenThousand);
     Generator(50000, fiftyThousand);
 
+    // Confirm the number of elements inside the vector
     cout << "       Hundred Elements Size: " << hundred.size() << endl;
     cout << "      Thousand Elements Size: " << thousand.size() << endl;
     cout << " Five Thousand Elements Size: " << fiveThousand.size() << endl;
@@ -111,44 +115,46 @@ int main() {
     cout << "Time taken for Recursion Bubble Sort: " << elapsed10 << " seconds" << endl;
 }
 
+// Function for generating random int and addint into a vector
 void Generator(int num, vector<int>& alpha) {
     srand(time(NULL));
 
-    for (int i = 0; i < num; i++) {
-        int randNum = rand()% num + 1;
-        alpha.push_back(randNum);
+    for (int i = 0; i < num; i++) {                     // loops around based on how many elements should be added
+        int randNum = rand()% num + 1;                  // generates random number based on the given num range
+        alpha.push_back(randNum);                       // add it into vector alpha
     }
 }
 
-
-void BubbleSort(vector<int> theta, int size) {
-    if (size == 1) {
-        return;
+// Recursion bubble sort function
+void BubbleSort(vector<int>& theta, int size) {       
+    if (size == 1) {                                    // condition for preventing the call of function indefinitely
+        return;                                         // returns nothing
     }
-    for (int i = 0; i < size - 1; i++) {
+    for (int i = 0; i < size - 1; i++) {                // for loop for iterating through the elements and swapping if previous is bigger than the next
         if (theta[i] > theta[i+1]) {
             swap(theta[i], theta[i+1]);
         }
     }
-    BubbleSort(theta, size - 1);
+    BubbleSort(theta, size - 1);                       // call function again recursively with size - 1, this eventually reaches 1 and stops the recursion
 }
 
+// Sort with Insert Method
+void InsertSort(vector<int>& delta) {                    // accepts a vector (pass by reference so the original is also manipulated)
+    int size = delta.size();                             // figure out the size of the passed vector
+    int a, b;                                            // declare some needed int vars
 
-void InsertSort(vector<int> delta) {
-    int size = delta.size();
-    int a, b;
-
-    for (int i = 0; i < size; i++) {
-        a = delta[i];
-        b = i - 1;
-        while (b >= 0 && delta[b] > a) {
-            delta[b+1] = delta[b];
-            b = b - 1;
+    for (int i = 0; i < size; i++) {                     // loop through the size of the vector
+        a = delta[i];                                    // set placeholder a to the value of delta[i]
+        b = i - 1;                                       // previous element position (left of the element)
+        while (b >= 0 && delta[b] > a) {                 // condition for checking if value delta[b] is greater than a
+            delta[b+1] = delta[b];                       // move the delta[b] to the next position
+            b = b - 1;                                   // decrease b by 1 to check the previous element
         }
-        delta[b+1] = a;
+        delta[b+1] = a;                                  // set the next element to a
     }
 }
 
+// Simple display function for testing purposes
 void Display(vector<int> beta) {
     for (int i = 0; i < beta.size(); i++) {
         cout << beta[i] << " ";
