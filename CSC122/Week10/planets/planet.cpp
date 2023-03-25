@@ -8,6 +8,7 @@ void Planets::SetPlanets(vector<string> alpha) {
     listPlanets = alpha;
 }
 
+// uses Insert Method for sorting
 void Planets::SortPlanets() {
     int size = listPlanets.size();
     int b;
