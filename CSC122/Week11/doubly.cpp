@@ -59,8 +59,8 @@ void List::RemoveNode(double val) {                                         // R
                     head = nullptr;                                         // again, if the list is empty, then the head will also be a nullptr
                 }
             } else {                                                        // condition if the node being is removed is neither the head or tail
-                terminator->previous->next = terminator->next;              // the previous pointer of the node before the terminator node is updated to point to the node after it
-                terminator->next->previous = terminator->previous;          // the next pointer of the node after terminator node is being updated to point to the node before it 
+                terminator->previous->next = terminator->next;              // terminator's previous pointer points to the node before it and updates that nodes next pointer to the terminator's next pointer which points to the next node
+                terminator->next->previous = terminator->previous;          // terminator's next pointer oints to the node after it and updates that nodes previous pointer with it's own previous pointer which points to the node before it 
             }
             delete terminator;                                              // delete terminator
             size--;                                                         // decrement size by 1
