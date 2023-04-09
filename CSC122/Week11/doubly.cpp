@@ -2,26 +2,27 @@
 #include "doubly.h"
 using namespace std;
 
-Node::Node() {
+Node::Node() {                                          // constructor with default values
     value = 0.0;
     next = nullptr;
     previous = nullptr;
 }
 
-List::List() {
+List::List() {                                          // constructor with default values
     data = nullptr;
     head = nullptr;
     tail = nullptr;
     size = 0;
 }
 
-List::~List() {
-    Node* ptr = data;
-    while (ptr != nullptr) {
-        Node* next = ptr->next;
-        delete ptr;
-        ptr=next;
-        cout << "RELEASED: " << ptr->value << endl;
+List::~List() {                                         // destructor
+    Node* terminate = head;
+    while (terminate != nullptr) {
+        cout << "\nRELEASING: " << terminate->value;
+        Node* next = terminate->next;
+        delete terminate;
+        terminate=next;
+        cout << " ...RELEASED!";
     }
 }
 
@@ -68,7 +69,7 @@ void List::RemoveNode(double val) {                                         // R
             cout << "\nDid not match any existing data!\n\n";               // Error message in case the user puts in not matching data
             break;
         }
-        terminator = nullptr;                                               // just set terminator to nullptr after deletion
+        //terminator = terminator->next;                                      // just set terminator to nullptr after deletion
     }
 }
 

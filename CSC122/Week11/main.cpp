@@ -20,6 +20,7 @@ int main() {
             obj.DisplayForward();
             cout << endl;
             double userInput = ReadValue<double>("Enter value to remove: ");
+            cout << userInput;
             obj.RemoveNode(userInput);
         } else if (userChoice == 3) {
             cout << endl;
@@ -30,7 +31,8 @@ int main() {
             obj.DisplayBackward();
             cout << endl;
         } else if (userChoice == 5) {
-            cout << "Exiting..." << endl;
+            obj.~List();
+            cout << "\nExiting..." << endl;
             break;
         } else {
             cout << "Choose the proper option!" << endl;
