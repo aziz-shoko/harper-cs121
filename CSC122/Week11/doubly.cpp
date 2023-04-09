@@ -41,11 +41,38 @@ void List::InsertNode(double val) {                     // accepts a given doubl
 }
 
 void List::RemoveNode(double val) {
-    Node* terminator;
+    Node* terminator = head;
     while (terminator != nullptr) {
-
+        if (terminator->value == val) {
+            if (terminator == head) {
+                head = terminator->next;
+                if (head != nullptr) {
+                    head->previous = nullptr;
+                } else {
+                    tail = nullptr;
+                }
+            } else if (terminator == tail) {
+                tail = terminator->previous;
+                if (tail != nullptr) {
+                    tail->next = nullptr;
+                } else {
+                    head = nullptr;
+                }
+            } else {
+                terminator->previous->next = terminator->next;
+                terminator->next->previous = terminator->previous;
+            }
+            delete terminator;
+            size--;
+        } else {
+            cout << "\nDid not match any existing data!\n\n";
+            break;
+        }
+        terminator = terminator->next;
     }
 }
+
+
 
 void List::ValueSetter(double x) {
     value = x;

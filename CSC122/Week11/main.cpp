@@ -14,7 +14,7 @@ int main() {
         if (userChoice == 1) {
             double userInput = ReadValue<double>("Enter number value to add: ");
             obj.InsertNode(userInput);
-            cout << "\nValue added, choose display options to see it!";
+            cout << "\nValue added, choose display options to see it!\n\n";
         } else if (userChoice == 2) {
             cout << endl;
             obj.DisplayForward();
