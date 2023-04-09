@@ -40,35 +40,35 @@ void List::InsertNode(double val) {                     // accepts a given doubl
     size++;                                             // the size is incremented by 1
 }
 
-void List::RemoveNode(double val) {
-    Node* terminator = head;
-    while (terminator != nullptr) {
-        if (terminator->value == val) {
-            if (terminator == head) {
-                head = terminator->next;
-                if (head != nullptr) {
-                    head->previous = nullptr;
+void List::RemoveNode(double val) {                                         // RemoveNode function that accepts a double data type value
+    Node* terminator = head;                                                // Create a new node and set it equal to head (gonna have to start at head)
+    while (terminator != nullptr) {                                         // while loop to loop through the nodes (nullptr means the end of the list)
+        if (terminator->value == val) {                                     // condition for checking to see if the value of terminator equals to the passed in value
+            if (terminator == head) {                                       // if the passed in value happens to be the head,
+                head = terminator->next;                                    // head now becomes the next node because it stores the value of the terminator's next pointer
+                if (head != nullptr) {                                      // condition for head not being a nullptr
+                    head->previous = nullptr;                               // must set the head previous to nullptr since we will no longer have a node before it
                 } else {
-                    tail = nullptr;
+                    tail = nullptr;                                         // sets the tail to nullptr as well because incase of empty list, we would want tail to also be a nullptr
                 }
-            } else if (terminator == tail) {
-                tail = terminator->previous;
-                if (tail != nullptr) {
-                    tail->next = nullptr;
+            } else if (terminator == tail) {                                // condition for if the node being deleted is the last one
+                tail = terminator->previous;                                // tail now becomes the previous node
+                if (tail != nullptr) {                                      // condition for nullptr
+                    tail->next = nullptr;                                   // the tail next must be set to nullptr to cut off the last node pointer connection 
                 } else {
-                    head = nullptr;
+                    head = nullptr;                                         // again, if the list is empty, then the head will also be a nullptr
                 }
-            } else {
-                terminator->previous->next = terminator->next;
-                terminator->next->previous = terminator->previous;
+            } else {                                                        // condition if the node being is removed is neither the head or tail
+                terminator->previous->next = terminator->next;              // the previous pointer of the node before the terminator node is updated to point to the node after it
+                terminator->next->previous = terminator->previous;          // the next pointer of the node after terminator node is being updated to point to the node before it 
             }
-            delete terminator;
-            size--;
+            delete terminator;                                              // delete terminator
+            size--;                                                         // decrement size by 1
         } else {
-            cout << "\nDid not match any existing data!\n\n";
+            cout << "\nDid not match any existing data!\n\n";               // Error message in case the user puts in not matching data
             break;
         }
-        terminator = terminator->next;
+        terminator = nullptr;                                               // just set terminator to nullptr after deletion
     }
 }
 
