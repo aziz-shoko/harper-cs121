@@ -16,7 +16,11 @@ int main() {
             obj.InsertNode(userInput);
             cout << "\nValue added, choose display options to see it!";
         } else if (userChoice == 2) {
-            cout << "working on it" << endl;
+            cout << endl;
+            obj.DisplayForward();
+            cout << endl;
+            double userInput = ReadValue<double>("Enter value to remove: ");
+            obj.RemoveNode(userInput);
         } else if (userChoice == 3) {
             cout << endl;
             obj.DisplayForward();

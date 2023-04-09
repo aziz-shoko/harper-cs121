@@ -40,8 +40,11 @@ void List::InsertNode(double val) {                     // accepts a given doubl
     size++;                                             // the size is incremented by 1
 }
 
-void List::RemoveNode() {
+void List::RemoveNode(double val) {
+    Node* terminator;
+    while (terminator != nullptr) {
 
+    }
 }
 
 void List::ValueSetter(double x) {

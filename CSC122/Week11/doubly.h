@@ -21,7 +21,7 @@ class List: public Node {
         List();
         ~List();
         void InsertNode(double);
-        void RemoveNode();
+        void RemoveNode(double);
         void ValueSetter(double);
         double ValueGetter();
 
