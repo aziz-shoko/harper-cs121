@@ -45,7 +45,6 @@ void List::InsertNode(double val) {                     // accepts a given doubl
 }
 
 void List::RemoveNode(double val) {                                         // RemoveNode function that accepts a double data type value
-    int alpha = 0;                                                           // for error messages
     Node* terminator = head;                                                // Create a new node and set it equal to head (gonna have to start at head)
     while (terminator != nullptr) {                                         // while loop to loop through the nodes (nullptr means the end of the list)
         if (terminator->value == val) {                                     // condition for checking to see if the value of terminator equals to the passed in value
