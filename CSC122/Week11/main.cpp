@@ -3,6 +3,7 @@
 #include "input.h"
 using namespace std;
 
+// main function to simply display a menu and call doubly class functions
 int main() {
     int userChoice;
     double userInput;
