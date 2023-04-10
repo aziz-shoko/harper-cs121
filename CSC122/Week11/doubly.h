@@ -4,11 +4,12 @@ using namespace std;
 #ifndef DOUBLY
 #define  DOUBLY
 
+// struct for one Node 
 struct Node {
     double value;
     Node* next;
     Node* previous;
-    Node();
+    Node();                             // make sure specify the Node as contructor here or else you will get noexcept errors in the other file(doubly.cpp)
 };
 class List: public Node {
     protected:
