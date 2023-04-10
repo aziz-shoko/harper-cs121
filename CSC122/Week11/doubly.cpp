@@ -42,6 +42,7 @@ void List::InsertNode(double val) {                     // accepts a given doubl
 }
 
 void List::RemoveNode(double val) {                                         // RemoveNode function that accepts a double data type value
+    int alpha = 0;                                                           // for error messages
     Node* terminator = head;                                                // Create a new node and set it equal to head (gonna have to start at head)
     while (terminator != nullptr) {                                         // while loop to loop through the nodes (nullptr means the end of the list)
         if (terminator->value == val) {                                     // condition for checking to see if the value of terminator equals to the passed in value
@@ -65,38 +66,35 @@ void List::RemoveNode(double val) {                                         // R
             }
             delete terminator;                                              // delete terminator
             size--;                                                         // decrement size by 1
-        } else {
-            cout << "\nDid not match any existing data!\n\n";               // Error message in case the user puts in not matching data
-            break;
         }
-        //terminator = terminator->next;                                      // just set terminator to nullptr after deletion
+        terminator = terminator->next;                                      // just set terminator to terminator next value
     }
 }
 
 
 
-void List::ValueSetter(double x) {
+void List::ValueSetter(double x) {                                          // set value for value
     value = x;
 }
 
-double List::ValueGetter() {
+double List::ValueGetter() {                                                // get value for value
     return value;
 }
 
-void List::DisplayForward() {
+void List::DisplayForward() {                                               // display the linked list forwards
     Node* forward = head;
     while (forward != nullptr) {
-        cout << forward->value << " ";
-        forward = forward->next;
+        cout << forward->value << " ";                                      // output value
+        forward = forward->next;                                            // move on to the next node
     }
     cout << endl;
 }
 
-void List::DisplayBackward() {
+void List::DisplayBackward() {                                              // display the linked list backwards
     Node* backward = tail;
     while (backward != nullptr) {
-        cout << backward->value << " ";
-        backward = backward->previous;
+        cout << backward->value << " ";                                     // output the value
+        backward = backward->previous;                                      // move on to the previous node
     }
     cout << endl;
 }
