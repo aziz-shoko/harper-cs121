@@ -16,14 +16,17 @@ List::List() {                                          // constructor with defa
 }
 
 List::~List() {                                         // destructor
-    Node* terminate = head;
-    while (terminate != nullptr) {
-        cout << "\nRELEASING: " << terminate->value;
-        Node* next = terminate->next;
-        delete terminate;
-        terminate=next;
+    Node* destruct = head;
+    while (destruct != nullptr) {
+        Node* next = destruct->next;
+        cout << "\nRELEASING: " << destruct->value;
+        delete destruct;
+        destruct = next;
         cout << " ...RELEASED!";
     }
+    head = nullptr;                                     // Reset nodes to nullptr
+    tail = nullptr;
+    size = 0;
 }
 
 // Function for adding a new node
