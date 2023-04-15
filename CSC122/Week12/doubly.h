@@ -28,6 +28,9 @@ class List: public Node {
 
         void DisplayForward();
         void DisplayBackward();
+
+    
+    double& operator[](int&);
 };
 
 #endif

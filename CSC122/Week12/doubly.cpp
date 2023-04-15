@@ -101,6 +101,19 @@ void List::DisplayBackward() {                                              // d
     cout << endl;
 }
 
+double& List::operator[](int& numerator) {
+    if (numerator < 0 || numerator >= size) {
+        throw std::out_of_range("numerator out of range");
+    }
+
+    Node* doodoo = head;
+    for (int i = 0; i < numerator; i++) {
+        doodoo = doodoo->next;
+    }
+
+    return doodoo->value;
+}
+
 // Useful Links: 
 // https://www.youtube.com/watch?v=e9NG_a6Z0mg&list=PLBlnK6fEyqRg7pacSDMgPn7vDVhz3N1uf&index=2&ab_channel=NesoAcademy
 // https://www.tutorialspoint.com/delete-a-node-in-a-doubly-linked-list-in-cplusplus

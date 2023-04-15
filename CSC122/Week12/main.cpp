@@ -33,7 +33,9 @@ int main() {
             obj.DisplayBackward();
             cout << endl;
         } else if( userChoice == 5) {
-
+            obj.DisplayForward();
+            int userInput = ReadValue<int>("\nEnter Index for value: ");
+            cout << "\n" << obj[userInput] << "\n\n";
         } else if( userChoice == 6) {
             
         } else if (userChoice == 7) {
