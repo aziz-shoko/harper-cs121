@@ -11,7 +11,7 @@ int main() {
 
     while (true) {
         string prompt = "Choose Options: \n\n\t1. Add Value\n\t2. Delete Value\n\t3. Display List Forward\n\t4. Display List Backwards\n\t5. Index Query\n\
-        6. Number adder by operator overload but also shows the factorization or prime\n\t7. Quit\n\nChoose Option: ";
+        6. Add Value Operator Overload\n\t7. Prime/Factorization Calculator\n\t8. Quit\n\nChoose Option: ";
         double userChoice = ReadValue<int>(prompt);
 
         if (userChoice == 1) {
@@ -37,8 +37,13 @@ int main() {
             int userIndex = ReadValue<int>("\nEnter Index for value: ");
             cout << "\n" << obj[userIndex] << "\n\n";
         } else if( userChoice == 6) {
+            double userInput = ReadValue<double>("\nEnter number value to add: ");
+            obj = obj + userInput;
+            cout << "\n\nValue added, choose display options ot see it!\n\n";
+        } else if ( userChoice == 7 ) {
+            int userInput = ReadValue<int>("\nEnter value to factorize: ");
             
-        } else if (userChoice == 7) {
+        } else if (userChoice == 8) {
             obj.~List();
             cout << "\nExiting..." << endl;
             break;

@@ -31,6 +31,7 @@ class List: public Node {
 
     
     double& operator[](int&);
+    List& operator+(double&);
 };
 
 #endif

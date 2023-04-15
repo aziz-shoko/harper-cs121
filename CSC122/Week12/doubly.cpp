@@ -123,6 +123,11 @@ double& List::operator[](int& num) {                                        // o
     return doodoo->value;                                                   // return the value of doodoo (the data that it stores)
 }
 
+List& List::operator+(double& data) {                                       // get the piece of data to add
+    InsertNode(data);                                                       // call the insert node function to add the new node
+    return *this;                                                           // return return this  or current object                                 
+}
+
 // Useful Links: 
 // https://www.youtube.com/watch?v=e9NG_a6Z0mg&list=PLBlnK6fEyqRg7pacSDMgPn7vDVhz3N1uf&index=2&ab_channel=NesoAcademy
 // https://www.tutorialspoint.com/delete-a-node-in-a-doubly-linked-list-in-cplusplus
