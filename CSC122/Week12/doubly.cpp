@@ -102,8 +102,8 @@ void List::DisplayBackward() {                                              // d
     cout << endl;
 }
 
-double& List::operator[](int& numerator) {
-    if (numerator < 0 || numerator >= size) {
+double& List::operator[](int& num) {                                        // operator overload that accepts the index value
+    if (num < 0 || num >= size) {                                           // error message if the passed on index value is out of range
         cout << "\nIndex out of range!\n";
         cout << "Crashing program...";
         sleep(1);
@@ -115,12 +115,12 @@ double& List::operator[](int& numerator) {
         exit(0);
     } 
 
-    Node* doodoo = head;
-    for (int i = 0; i < numerator; i++) {
-        doodoo = doodoo->next;
-    }
+    Node* doodoo = head;                                                    // add new node doodoo and set it to the head (we will start from the beginning)
+    for (int i = 0; i < num; i++) {                                         // for loop that loops through the nodes until it reaches the index value node and stops
+        doodoo = doodoo->next;                                              // set doodoo to the next pointer so that it can traverse through the nodes
+    }                                                                       // when the loop stops, the corresponding index will become that node  
 
-    return doodoo->value;
+    return doodoo->value;                                                   // return the value of doodoo (the data that it stores)
 }
 
 // Useful Links: 
