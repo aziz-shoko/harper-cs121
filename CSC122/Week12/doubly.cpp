@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unistd.h>
 #include "doubly.h"
 using namespace std;
 
@@ -103,8 +104,18 @@ void List::DisplayBackward() {                                              // d
 
 double& List::operator[](int& numerator) {
     if (numerator < 0 || numerator >= size) {
-        throw std::out_of_range("numerator out of range");
-    }
+        cout << "\nIndex out of range!\n";
+        cout << "Crashing program...";
+        sleep(1);
+        cout << "\nCPU Failure!!";
+        sleep (1);
+        cout << "\nMEMORY Failure!";
+        sleep (1);
+        cout << "\nOverheating!";
+        sleep (1);
+        cout << "\n01100010 01101100 01111001 01100001 01110100!!";
+        exit(0);
+    } 
 
     Node* doodoo = head;
     for (int i = 0; i < numerator; i++) {
