@@ -128,35 +128,35 @@ List& List::operator+(double& data) {                                       // g
     return *this;                                                           // return return this  or current object                                 
 }
 
-void List::Factorize(int theta) {
-    int op = 0;
-    bool prime = true;
-    if (theta == 1 || theta == 2) {
-        cout << "Prime Number: " << theta << endl;
-        op = 1;
+void List::Factorize(int theta) {                                           // receive value theta
+    int op = 0;                                                             // declare op to control which parts of the function get executed
+    bool prime = true;                                                      // declare the prime variable 
+    if (theta == 1 || theta == 2) {                                         // if the passed in variable is 1 or 2, then its prime 
+        cout << "\nPrime Number: " << theta << endl;
+        op = 1;                                                             // set op to 1 so that rest of the function doesn't get executed
     }
 
-    if (op != 1) {
-        for (int i = 2; i*i <= theta; i++) {
-            if (theta%i == 0) {
-                prime = false;
+    if (op != 1) {                                                          // as long as op isn't = 1, run the rest of the function
+        for (int i = 2; i*i <= theta; i++) {                                // for loop for i^2 is less than the provided value of theta
+            if (theta%i == 0) {                                             // check to see if theta is divisible by some values of i
+                prime = false;                                              // if it is, then its not prime and set prime to false and break from loop
                 break;
             }
         }
-        if (prime) {
-            cout << "Prime Number: " << theta << endl;
+        if (prime) {                                                        // if prime is true, then output number is prime
+            cout << "\nPrime Number: " << theta << endl;
         } else {
-            cout << "\nFactorized: ";
-            int num = 2;
-            while (theta > 1) {
-                if (theta % num == 0) {
+            cout << "\nFactorized: ";                                       // if its not prime, then factorize it
+            int num = 2;                                                    // declare num 2
+            while (theta > 1) {                                             // loop that runs as long as theta is greater than 1
+                if (theta % num == 0) {                                     // if theta is devisible by a number with no remainder, it keeps doing so to factorize it
                     cout << num << " ";
                     theta /= num;
                 } else {
-                    num++;
+                    num++;                                                  // increment num by 1 and see if that is a factor of theta (ex. theta=9, num=2 is not a factor so it increments to 3 next loop)
                 }
             }
-            cout << "\n\b\b";
+            cout << endl;
         }
     }
 }
