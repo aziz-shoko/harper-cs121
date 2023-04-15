@@ -111,8 +111,6 @@ double& List::operator[](int& numerator) {
         sleep (1);
         cout << "\nMEMORY Failure!";
         sleep (1);
-        cout << "\nOverheating!";
-        sleep (1);
         cout << "\n01100010 01101100 01111001 01100001 01110100!!";
         exit(0);
     } 
