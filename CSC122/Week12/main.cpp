@@ -42,7 +42,8 @@ int main() {
             cout << "\n\nValue added, choose display options ot see it!\n\n";
         } else if ( userChoice == 7 ) {
             int userInput = ReadValue<int>("\nEnter value to factorize: ");
-            
+            obj.Factorize(userInput);
+            cout << "\n\n";
         } else if (userChoice == 8) {
             obj.~List();
             cout << "\nExiting..." << endl;

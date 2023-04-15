@@ -29,6 +29,8 @@ class List: public Node {
         void DisplayForward();
         void DisplayBackward();
 
+        void Factorize(int);
+
     
     double& operator[](int&);
     List& operator+(double&);

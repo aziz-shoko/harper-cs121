@@ -102,8 +102,8 @@ void List::DisplayBackward() {                                              // d
     cout << endl;
 }
 
-double& List::operator[](int& num) {                                        // operator overload that accepts the index value
-    if (num < 0 || num >= size) {                                           // error message if the passed on index value is out of range
+double& List::operator[](int& alpha) {                                        // operator overload that accepts the index value
+    if (alpha < 0 || alpha >= size) {                                           // error message if the passed on index value is out of range
         cout << "\nIndex out of range!\n";
         cout << "Crashing program...";
         sleep(1);
@@ -116,7 +116,7 @@ double& List::operator[](int& num) {                                        // o
     } 
 
     Node* doodoo = head;                                                    // add new node doodoo and set it to the head (we will start from the beginning)
-    for (int i = 0; i < num; i++) {                                         // for loop that loops through the nodes until it reaches the index value node and stops
+    for (int i = 0; i < alpha; i++) {                                         // for loop that loops through the nodes until it reaches the index value node and stops
         doodoo = doodoo->next;                                              // set doodoo to the next pointer so that it can traverse through the nodes
     }                                                                       // when the loop stops, the corresponding index will become that node  
 
@@ -126,6 +126,39 @@ double& List::operator[](int& num) {                                        // o
 List& List::operator+(double& data) {                                       // get the piece of data to add
     InsertNode(data);                                                       // call the insert node function to add the new node
     return *this;                                                           // return return this  or current object                                 
+}
+
+void List::Factorize(int theta) {
+    int op = 0;
+    bool prime = true;
+    if (theta == 1 || theta == 2) {
+        cout << "Prime Number: " << theta << endl;
+        op = 1;
+    }
+
+    if (op != 1) {
+        for (int i = 2; i*i <= theta; i++) {
+            if (theta%i == 0) {
+                prime = false;
+                break;
+            }
+        }
+        if (prime) {
+            cout << "Prime Number: " << theta << endl;
+        } else {
+            cout << "\nFactorized: ";
+            int num = 2;
+            while (theta > 1) {
+                if (theta % num == 0) {
+                    cout << num << " ";
+                    theta /= num;
+                } else {
+                    num++;
+                }
+            }
+            cout << "\n\b\b";
+        }
+    }
 }
 
 // Useful Links: 
