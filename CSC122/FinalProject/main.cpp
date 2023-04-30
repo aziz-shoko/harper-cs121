@@ -41,6 +41,8 @@ int main() {
             cout << "Enter persons's name to fire: ";
             cin >> userInput;
             Fire(record, userInput);
+        } else if (userInput == 7) {
+            cout << "\nWork In Progress\n";
         }
           else if (userInput == 8) {
             break;
