@@ -13,6 +13,7 @@ class Person {                                      // base class Person and its
     public:
         string type = "Person";
         Person();
+        virtual ~Person() {};
         virtual void SetType()=0;
         virtual void Input()=0;
         virtual void Display(ostream& out)=0;

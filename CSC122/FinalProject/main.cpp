@@ -1,11 +1,13 @@
 #include <iostream>                                             // file headers
 #include <vector>
+#include <algorithm>
 #include "person.h"
 #include "input.h"
 using namespace std;
 
 void Display(vector<Person*>& obj);                             // declare Display function with vector type for its parameter
 void Search(vector<Person*>& obj, string);
+void Fire(vector<Person*>& obj, string);
 
 
 int main() {
@@ -34,6 +36,11 @@ int main() {
             cout << "Enter person's name for info: ";
             cin >> userInput;
             Search(record, userInput);
+        } else if (userInput == 6) {
+            string userInput;
+            cout << "Enter persons's name to fire: ";
+            cin >> userInput;
+            Fire(record, userInput);
         }
           else if (userInput == 8) {
             break;
@@ -60,6 +67,19 @@ void Search(vector<Person*>& obj, string name) {
             obj[i]->Display(cout);
         } else {
             cout << "Name doesn't exist!";
+        }
+    }
+}
+
+void Fire(vector<Person*>& obj, string name) {
+    for (auto it = obj.begin(); it != obj.end();) {
+        if ( (*it)->GetName() == name) {
+            delete *it;
+            obj.erase(it);
+            cout << "\nFired: " << name << endl;
+        } else {
+            cout << "\nName not found" << endl;
+            ++it;
         }
     }
 }
