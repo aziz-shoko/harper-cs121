@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 #include "person.h"
 using namespace std;
 
@@ -60,6 +61,13 @@ void Laborer::Display(ostream& out) {                           // display funct
     out << "          ID: " << GetID() << endl;
     out << "  Hourly pay: $" << GetPay() << endl;
     out << "Hours Worked: " << GetHours() << endl;
+}
+
+void Laborer::Write() {
+    ofstream file;
+    file.open("Laborer.txt", ios_base::app);
+    this->Display(file);
+    file.close();
 }
 
 string Laborer::GetJob() {
@@ -140,6 +148,13 @@ void Manager::Display(ostream& out) {                               // display m
     out << "    Salary: $" << GetSalary() << endl;
 }
 
+void Manager::Write() {
+    ofstream file;
+    file.open("Manager.txt", ios_base::app);
+    this->Display(file);
+    file.close();
+}
+
 string Manager::GetDepartment() {
     return department;
 }
@@ -204,6 +219,13 @@ void Owner::Display(ostream& out) {                             // Display metho
     out << "         Job Type: " << GetType() << endl;
     out << "    Percent Owned: " << GetOwned() << "%" << endl;
     out << "Date of Ownership: " << GetDateOwned() << endl;
+}
+
+void Owner::Write() {
+    ofstream file;
+    file.open("Owner.txt", ios_base::app);
+    this->Display(file);
+    file.close();
 }
 
 string Owner::GetType() {

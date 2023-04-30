@@ -8,6 +8,7 @@ using namespace std;
 void Display(vector<Person*>& obj);                             // declare Display function with vector type for its parameter
 void Search(vector<Person*>& obj, string);
 void Fire(vector<Person*>& obj, string);
+void Write(vector<Person*>& obj);
 
 
 int main() {
@@ -45,6 +46,7 @@ int main() {
             cout << "\nWork In Progress\n";
         }
           else if (userInput == 8) {
+            Write(record);
             break;
         }
     } 
@@ -62,6 +64,12 @@ void Display(vector<Person*>& obj) {
     }
 }
 
+void Write(vector<Person*>& obj) {
+    int len = obj.size();
+    for (int i = 0; i < len; i++) {
+        obj[i]->Write();
+    }
+}
 void Search(vector<Person*>& obj, string name) {
     int len = obj.size();
     for (int i = 0; i < len; i++) {

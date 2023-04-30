@@ -17,6 +17,8 @@ class Person {                                      // base class Person and its
         virtual void SetType()=0;
         virtual void Input()=0;
         virtual void Display(ostream& out)=0;
+        virtual void Write()=0;
+        // virtual void Read()=0;
         virtual void SetName(string);
         virtual void SetSS(string);
         virtual void SetBirthdate(string);
@@ -42,6 +44,7 @@ class Laborer : public Person {                     // derived class Laborer and
         void SetPay(int);
         void SetHours(int);
         void Display(ostream& out);
+        void Write();
 
         string GetJob();
         string GetType(); 
@@ -64,6 +67,7 @@ class Manager : public Person {                     // derived class Manager and
         void SetID(int);
         void SetPay(int);
         void Display(ostream& out);
+        void Write();
 
         string GetDepartment();
         string GetType();
@@ -84,6 +88,7 @@ class Owner : public Person {                       // derived class Owner and i
         void SetOwned(double);
         void SetDate(string);
         void Display(ostream& out);
+        void Write();
 
         string GetType();
         double GetOwned();
