@@ -70,6 +70,37 @@ void Laborer::Write() {
     file.close();
 }
 
+// void Laborer::Read() {
+//     ifstream file("Laborer.txt"); // Open the file for reading
+//     if (!file) {
+//         cerr << "Error: could not open file." << endl;
+//         return;
+//     }
+
+//     string line;
+//     while (getline(file, line)) { // Read each line in the file
+//         if (line.find("Name: ") == 0) {
+//             SetName(line.substr(6)); // Set the name using the substring after "Name: "
+//         } else if (line.find("SSN: ") == 0) {
+//             SetSS(line.substr(5)); // Set the social security number using the substring after "SSN: "
+//         } else if (line.find("Birthdate: ") == 0) {
+//             SetBirthdate(line.substr(11)); // Set the birthdate using the substring after "Birthdate: "
+//         } else if (line.find("Job Type: ") == 0) {
+//             // Do nothing - this is a fixed value for the Laborer class
+//         } else if (line.find("Job Title: ") == 0) {
+//             SetJob(line.substr(11)); // Set the job title using the substring after "Job Title: "
+//         } else if (line.find("ID: ") == 0) {
+//             SetID(stoi(line.substr(4))); // Set the ID using the integer value after "ID: "
+//         } else if (line.find("Hourly pay: $") == 0) {
+//             SetPay(stoi(line.substr(13))); // Set the hourly pay using the integer value after "Hourly pay: $"
+//         } else if (line.find("Hours Worked: ") == 0) {
+//             SetHours(stoi(line.substr(14))); // Set the hours worked using the integer value after "Hours Worked: "
+//         }
+//     }
+
+//     file.close(); // Close the file
+// }
+
 string Laborer::GetJob() {
     return job;
 }

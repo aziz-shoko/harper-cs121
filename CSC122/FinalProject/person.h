@@ -45,6 +45,7 @@ class Laborer : public Person {                     // derived class Laborer and
         void SetHours(int);
         void Display(ostream& out);
         void Write();
+        void Read();
 
         string GetJob();
         string GetType(); 
@@ -68,7 +69,8 @@ class Manager : public Person {                     // derived class Manager and
         void SetPay(int);
         void Display(ostream& out);
         void Write();
-
+        void Read();
+        
         string GetDepartment();
         string GetType();
         int GetID();
@@ -89,6 +91,7 @@ class Owner : public Person {                       // derived class Owner and i
         void SetDate(string);
         void Display(ostream& out);
         void Write();
+        void Read();
 
         string GetType();
         double GetOwned();
