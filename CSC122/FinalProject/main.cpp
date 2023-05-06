@@ -104,40 +104,38 @@ void ReadLaborer(vector<Person*>& obj) {
     ifstream infile("Laborer.txt"); // Open the file "Laborer.txt" for reading
     if (infile.is_open()) {         // Check if the file is successfully opened
         string line;
-        // Laborer* lab = new Laborer();   // Create a new Laborer object
+        Laborer* lab = new Laborer();
         while (getline(infile, line)) {     // Read each line in the file
             stringstream ss(line);          // Create a stringstream from the line
-            string token;
-            getline(ss, token, ':');        // Parse the "Name" field
-            getline(ss, token);
-            cout << token << endl;
-            getline(ss, token, ':');        // Parse the "SSN" field
-            getline(ss, token);
-            cout << token << endl;
-            getline(ss, token, ':');        // Parse the "Birthdate" field
-            getline(ss, token);
-            cout << token << endl;
-            getline(ss, token, ':');        // Parse the "Job Type" field
-            getline(ss, token);
-            cout << token << endl;
-            getline(ss, token, ':');        // Parse the "Job Title" field
-            getline(ss, token);
-            cout << token << endl;
-            getline(ss, token, ':');        // Parse the "ID" field
-            getline(ss, token);
-            cout << token << endl;
-            getline(ss, token, ':');        // Parse the "Hourly pay" field
-            getline(ss, token);
-            cout << token << endl;
-            getline(ss, token, ':');        // Parse the "Hours Worked" field
-            getline(ss, token);
-            cout << token << endl;
-            // obj.push_back(lab);             // Add the Laborer object to the record vector
+            string field, value;
+            getline(ss, field, ':');        // Parse the field name
+            getline(ss, value);              // Parse the field value
+
+            if (field == "Name") {
+                lab->SetName(value);
+            } else if (field == "SSN") {
+                lab->SetSS(value);
+            } else if (field == "Birthdate") {
+                lab->SetBirthdate(value);
+            } else if (field == "Job Type") {
+                lab->SetType();
+            } else if (field == "Job Title") {
+                lab->SetJob(value);
+            } else if (field == "ID") {
+                lab->SetID(value);
+            } else if (field == "Hourly pay") {
+                lab->SetPay(value);
+            } else if (field == "Hours Worked") {
+                lab->SetHours(value);
+            }
         }
+        obj.push_back(lab);
         infile.close();                 // Close the file
     } else {
         cout << "Unable to open file Laborer.txt" << endl;
     }
+
+        infile.close();                 // Close the file
 }
 
 

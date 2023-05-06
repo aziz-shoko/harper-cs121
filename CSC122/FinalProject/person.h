@@ -31,50 +31,50 @@ class Person {                                      // base class Person and its
 class Laborer : public Person {                     // derived class Laborer and its methods
     private:
         string job;
-        int ID;
-        int payPerHour;
-        int hours;
+        string ID;
+        string payPerHour;
+        string hours;
 
     public:
         Laborer();
         void Input();
         void SetType();
         void SetJob (string);
-        void SetID(int);
-        void SetPay(int);
-        void SetHours(int);
+        void SetID(string);
+        void SetPay(string);
+        void SetHours(string);
         void Display(ostream& out);
         void Write();
         void Read();
 
         string GetJob();
         string GetType(); 
-        int GetID();
-        int GetPay();
-        int GetHours(); 
+        string GetID();
+        string GetPay();
+        string GetHours(); 
 };
 
 class Manager : public Person {                     // derived class Manager and its methods
     private: 
         string department;
-        int ID;
-        int salary;
+        string ID;
+        string salary;
     
     public: 
         Manager();
         void Input();
         void SetType();
         void SetDepartment(string);
-        void SetID(int);
-        void SetPay(int);
+        void SetID(string);
+        void SetPay(string);
         void Display(ostream& out);
         void Write();
         void Read();
         
         string GetDepartment();
         string GetType();
-        int GetID();
-        int GetSalary();
+        string GetID();
+        string GetSalary();
 
 };
 
