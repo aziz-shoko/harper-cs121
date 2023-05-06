@@ -1,5 +1,6 @@
 #include <iostream>                                             // file headers
 #include <vector>
+#include <string>
 #include <algorithm>
 #include <fstream>
 #include <sstream>
@@ -103,40 +104,41 @@ void ReadLaborer(vector<Person*>& obj) {
     ifstream infile("Laborer.txt"); // Open the file "Laborer.txt" for reading
     if (infile.is_open()) {         // Check if the file is successfully opened
         string line;
+        // Laborer* lab = new Laborer();   // Create a new Laborer object
         while (getline(infile, line)) {     // Read each line in the file
-            Laborer* lab = new Laborer();   // Create a new Laborer object
             stringstream ss(line);          // Create a stringstream from the line
             string token;
             getline(ss, token, ':');        // Parse the "Name" field
             getline(ss, token);
-            lab->SetName(token);
+            cout << token << endl;
             getline(ss, token, ':');        // Parse the "SSN" field
             getline(ss, token);
-            lab->SetSS(token);
+            cout << token << endl;
             getline(ss, token, ':');        // Parse the "Birthdate" field
             getline(ss, token);
-            lab->SetBirthdate(token);
+            cout << token << endl;
             getline(ss, token, ':');        // Parse the "Job Type" field
             getline(ss, token);
-            lab->SetType();
+            cout << token << endl;
             getline(ss, token, ':');        // Parse the "Job Title" field
             getline(ss, token);
-            lab->SetJob(token);
+            cout << token << endl;
             getline(ss, token, ':');        // Parse the "ID" field
             getline(ss, token);
-            lab->SetID(stoi(token));
+            cout << token << endl;
             getline(ss, token, ':');        // Parse the "Hourly pay" field
-            getline(ss, token, '$');
-            lab->SetPay(stoi(token));
+            getline(ss, token);
+            cout << token << endl;
             getline(ss, token, ':');        // Parse the "Hours Worked" field
             getline(ss, token);
-            lab->SetHours(stoi(token));
-            obj.push_back(lab);             // Add the Laborer object to the record vector
+            cout << token << endl;
+            // obj.push_back(lab);             // Add the Laborer object to the record vector
         }
         infile.close();                 // Close the file
     } else {
         cout << "Unable to open file Laborer.txt" << endl;
     }
 }
+
 
 
