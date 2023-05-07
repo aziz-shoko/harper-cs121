@@ -110,12 +110,20 @@ void Average(vector<Person*>& obj) {
 
     for (int i = 0; i < len; i++) {
         if (obj[i]->GetType() == "Laborer") {
-            // sumLaborer = sumLaborer + obj[i]->GetPay();
-            // n1++;
-
-            cout << "You got to here" << endl;
+            sumLaborer = sumLaborer + stod(obj[i]->GetPay());
+            n1++;
+        } else if (obj[i]->GetType() == "Manager") {
+            sumManager = sumManager + stod(obj[i]->GetPay());
+            n2++;
+        } else if (obj[i]->GetType() == "Owner") {
+            sumOwner = sumOwner + stod(obj[i]->GetPay());
+            n3++;
         }
     }
+
+    cout << "\nLaborer Pay Average: " << sumLaborer/n1 << endl;
+    cout << "Manager Pay Average: " << sumManager/n2 << endl;
+    cout << "Owner Pay Average: " << sumOwner/n3 << endl;
 }
 
 void ReadLaborer(vector<Person*>& obj) {                        // Function for reading the values from the laborer.txt
