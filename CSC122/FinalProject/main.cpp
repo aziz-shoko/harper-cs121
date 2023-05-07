@@ -8,13 +8,14 @@
 #include "input.h"
 using namespace std;
 
-void Display(vector<Person*>& obj);                             // declare Display function with vector type for its parameter
-void Search(vector<Person*>& obj, string);
-void Fire(vector<Person*>& obj, string);
-void Write(vector<Person*>& obj);
-void ReadLaborer(vector<Person*>& obj);
-void ReadManager(vector<Person*>& obj);
-void ReadOwner(vector<Person*>& obj);
+void Display(vector<Person*>&);                                 // declare Display function with vector type for its parameter
+void Search(vector<Person*>&, string);
+void Fire(vector<Person*>&, string);
+void Write(vector<Person*>&);
+void Average(vector<Person*>&);
+void ReadLaborer(vector<Person*>&);
+void ReadManager(vector<Person*>&);
+void ReadOwner(vector<Person*>&);
 
 int main() {
     vector<Person*> record;                                     // Create a vector to store class pointers (we will be storing instances of class inside this vector)
@@ -52,7 +53,8 @@ int main() {
             cin >> userInput;
             Fire(record, userInput);
         } else if (userInput == 7) {
-            cout << "\nWork In Progress\n";
+            cout << "\nAverages\n";
+            Average(record);
         }
           else if (userInput == 8) {
             Write(record);
@@ -98,6 +100,10 @@ void Fire(vector<Person*>& obj, string name) {                  // works similar
             ++it;
         }
     }
+}
+
+void Average(vector<Person*>& obj) {
+
 }
 
 void ReadLaborer(vector<Person*>& obj) {                        // Have three read functions that read off of a file that is either a laborer, manager, or owner. There is one for each
