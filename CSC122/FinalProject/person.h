@@ -9,6 +9,7 @@ class Person {                                      // base class Person and its
         string name;
         string socialSecurity;
         string birthDate;
+        string pay;
     
     public:
         string type = "Person";
@@ -18,7 +19,6 @@ class Person {                                      // base class Person and its
         virtual void Input()=0;
         virtual void Display(ostream& out)=0;
         virtual void Write()=0;
-        // virtual void Read()=0;
         virtual void SetName(string);
         virtual void SetSS(string);
         virtual void SetBirthdate(string);
@@ -26,13 +26,14 @@ class Person {                                      // base class Person and its
         virtual string GetName();
         virtual string GetSS();
         virtual string GetBirthdate();
+        virtual string GetType();
+        virtual string GetPay();
 };
 
 class Laborer : public Person {                     // derived class Laborer and its methods
     private:
         string job;
         string ID;
-        string payPerHour;
         string hours;
 
     public:
@@ -45,7 +46,6 @@ class Laborer : public Person {                     // derived class Laborer and
         void SetHours(string);
         void Display(ostream& out);
         void Write();
-        void Read();
 
         string GetJob();
         string GetType(); 
@@ -58,7 +58,6 @@ class Manager : public Person {                     // derived class Manager and
     private: 
         string department;
         string ID;
-        string salary;
     
     public: 
         Manager();
@@ -69,12 +68,11 @@ class Manager : public Person {                     // derived class Manager and
         void SetPay(string);
         void Display(ostream& out);
         void Write();
-        void Read();
         
         string GetDepartment();
         string GetType();
         string GetID();
-        string GetSalary();
+        string GetPay();
 
 };
 
@@ -89,9 +87,9 @@ class Owner : public Person {                       // derived class Owner and i
         void SetType();
         void SetOwned(string);
         void SetDate(string);
+        void SetPay(string);
         void Display(ostream& out);
         void Write();
-        void Read();
 
         string GetType();
         string GetOwned();

@@ -103,7 +103,19 @@ void Fire(vector<Person*>& obj, string name) {                  // works similar
 }
 
 void Average(vector<Person*>& obj) {
+    int len = obj.size();
+    double sumLaborer{0}, n1{0};   
+    double sumManager{0}, n2{0};
+    double sumOwner{0}, n3{0};
 
+    for (int i = 0; i < len; i++) {
+        if (obj[i]->GetType() == "Laborer") {
+            // sumLaborer = sumLaborer + obj[i]->GetPay();
+            // n1++;
+
+            cout << "You got to here" << endl;
+        }
+    }
 }
 
 void ReadLaborer(vector<Person*>& obj) {                        // Function for reading the values from the laborer.txt
@@ -231,6 +243,8 @@ void ReadOwner(vector<Person*>& obj) {
                     worker->SetBirthdate(value);
                 } else if (key == "Job Type") {
                     worker->SetType();
+                } else if (key == "Owner Pay") {
+                    worker->SetPay(value);
                 } else if (key == "Percent Owned") {
                     worker->SetOwned(value);
                 } else if (key == "Date of Ownership") {

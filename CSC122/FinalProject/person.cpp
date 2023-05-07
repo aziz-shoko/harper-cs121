@@ -30,6 +30,14 @@ string Person::GetBirthdate() {
     return birthDate;
 }
 
+string Person::GetType() {
+    return type;
+}
+
+string Person::GetPay() {
+    return pay;
+}
+
 Laborer::Laborer() {;}
 
 void Laborer::SetJob(string x) {
@@ -41,7 +49,7 @@ void Laborer::SetID(string x) {
 }
 
 void Laborer::SetPay(string x) {
-    payPerHour = x;
+    pay = x;
 }
 
 void Laborer::SetHours(string x) {
@@ -79,7 +87,7 @@ string Laborer::GetID() {
 }
 
 string Laborer::GetPay() {
-    return payPerHour;
+    return pay;
 }
 
 string Laborer::GetHours() {
@@ -131,7 +139,7 @@ void Manager::SetID(string x) {
 }
 
 void Manager::SetPay(string x) {
-    salary = x;
+    pay = x;
 }
 
 void Manager::SetType() {
@@ -145,7 +153,7 @@ void Manager::Display(ostream& out) {                               // display m
     out << "Job Type:" << GetType() << endl;
     out << "Department:" << GetDepartment() << endl;
     out << "ID:" << GetID() << endl;
-    out << "Salary:" << GetSalary() << endl;
+    out << "Salary:" << GetPay() << endl;
 }
 
 void Manager::Write() {
@@ -167,8 +175,8 @@ string Manager::GetID() {
     return ID;
 }
 
-string Manager::GetSalary() {
-    return salary;
+string Manager::GetPay() {
+    return pay;
 }
 
 void Manager::Input() {                                             // Input method for Manager
@@ -217,6 +225,7 @@ void Owner::Display(ostream& out) {                             // Display metho
     out << "SSN:" << GetSS() << endl;
     out << "Birthdate:" << GetBirthdate() << endl;
     out << "Job Type:" << GetType() << endl;
+    out << "Owner Pay:" << GetPay() << endl;
     out << "Percent Owned:" << GetOwned() << endl;
     out << "Date of Ownership:" << GetDateOwned() << endl;
 }
@@ -240,9 +249,13 @@ string Owner::GetOwned() {
     return percentOwned;
 }
 
+void Owner::SetPay(string d) {
+    pay = d;
+}
+
 void Owner::Input() {                                           // Input method for Owner
     string input1, input2, input3, input4;
-    string c;
+    string c, d;
 
     SetType();
     cout << "\nEnter Name: ";
@@ -255,6 +268,9 @@ void Owner::Input() {                                           // Input method 
     cin >> input2;
     SetBirthdate(input2);
 
+    cout << "Enter Pay: ";
+    cin >> d;
+    SetPay(d);
     cout << "Assign Percent of Ownership: ";
     cin >> c;
     SetOwned(c);
