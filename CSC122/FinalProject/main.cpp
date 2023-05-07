@@ -103,12 +103,12 @@ void Fire(vector<Person*>& obj, string name) {                  // works similar
 }
 
 void Average(vector<Person*>& obj) {
-    int len = obj.size();
-    double sumLaborer{0}, n1{0};   
+    int len = obj.size();                                       // function for calculating average for all worker types
+    double sumLaborer{0}, n1{0};                                // variables to keep track of each individual worker type
     double sumManager{0}, n2{0};
     double sumOwner{0}, n3{0};
 
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < len; i++) {                                     // loop through the entire record vector and add the amount of each workers pay
         if (obj[i]->GetType() == "Laborer") {
             sumLaborer = sumLaborer + stod(obj[i]->GetPay());
             n1++;
@@ -121,7 +121,7 @@ void Average(vector<Person*>& obj) {
         }
     }
 
-    cout << "\nLaborer Pay Average: " << sumLaborer/n1 << endl;
+    cout << "\nLaborer Pay Average: " << sumLaborer/n1 << endl; // output the average results
     cout << "Manager Pay Average: " << sumManager/n2 << endl;
     cout << "Owner Pay Average: " << sumOwner/n3 << endl;
 }
