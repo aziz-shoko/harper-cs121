@@ -273,3 +273,4 @@ void ReadOwner(vector<Person*>& obj) {
     }
 }
 
+// useful link: https://www.youtube.com/watch?v=CAqX8YT4lHI&ab_channel=MikeShah
