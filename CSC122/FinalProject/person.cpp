@@ -63,7 +63,7 @@ void Laborer::Display(ostream& out) {                           // display funct
     out << "Hours Worked:" << GetHours() << endl;
 }
 
-void Laborer::Write() {
+void Laborer::Write() {                                         // simple write function for outputting the Display output into a file
     ofstream file;
     file.open("Laborer.txt", ios_base::app);
     this->Display(file);

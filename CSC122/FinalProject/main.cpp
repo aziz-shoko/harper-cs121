@@ -73,13 +73,13 @@ void Display(vector<Person*>& obj) {
     }
 }
 
-void Write(vector<Person*>& obj) {
+void Write(vector<Person*>& obj) {                              // this write function is for iterating through the whole record vector and calling the Write() function for each instance
     int len = obj.size();
     for (int i = 0; i < len; i++) {
         obj[i]->Write();
     }
 }
-void Search(vector<Person*>& obj, string name) {
+void Search(vector<Person*>& obj, string name) {                // this one also iterates throughout the whole vector and calls the display function if the GetName() matches the searched name
     int len = obj.size();
     for (int i = 0; i < len; i++) {
         if (obj[i]->GetName() == name) {
@@ -88,7 +88,7 @@ void Search(vector<Person*>& obj, string name) {
     }
 }
 
-void Fire(vector<Person*>& obj, string name) {
+void Fire(vector<Person*>& obj, string name) {                  // works similarly to the search function (same idea) but I just use iterators to remove the instance from inside the vector
     for (auto it = obj.begin(); it != obj.end();) {
         if ( (*it)->GetName() == name) {
             delete *it;
@@ -100,18 +100,18 @@ void Fire(vector<Person*>& obj, string name) {
     }
 }
 
-void ReadLaborer(vector<Person*>& obj) {
-    ifstream infile("Laborer.txt"); // Open the file "Laborer.txt" for reading
-    if (infile.is_open()) {         // Check if the file is successfully opened
-        string line;
-        Laborer* lab = new Laborer();
-        while (getline(infile, line)) {     // Read each line in the file
-            stringstream ss(line);          // Create a stringstream from the line
-            string field, value;
-            getline(ss, field, ':');        // Parse the field name
-            getline(ss, value);              // Parse the field value
+void ReadLaborer(vector<Person*>& obj) {                        // Have three read functions that read off of a file that is either a laborer, manager, or owner. There is one for each
+    ifstream infile("Laborer.txt");                             // Opens the laborer.txt file
+    if (infile.is_open()) {                                     // condition for making sure the file exists
+        string line;                                            // create a placeholder string vale
+        Laborer* lab = new Laborer();                           // create a temp instance to store the read info to and push it back to record vector
+        while (getline(infile, line)) {                         // while loop for reading the lines from the file
+            stringstream ss(line);                              // string stream for parsing purposes
+            string field, value;                                // placeholder strings for the keys and values
+            getline(ss, field, ':');                            // separate the key based on the : delimeter and store it in key
+            getline(ss, value);                                 // store the rest in value                                     
 
-            if (field == "Name") {
+            if (field == "Name") {                              // below are the conditions for setting the read values to the values of the laborer class instance
                 lab->SetName(value);
             } else if (field == "SSN") {
                 lab->SetSS(value);
@@ -129,25 +129,25 @@ void ReadLaborer(vector<Person*>& obj) {
                 lab->SetHours(value);
             }
         }
-        obj.push_back(lab);
-        infile.close();                 // Close the file
+        obj.push_back(lab);                                     // once the values are set, it is pushed back into the record vector
+        infile.close();                                             // the other functions below are the same exact thing but for the other job specific types
     } else {
         cout << "Unable to open file Laborer.txt" << endl;
     }
 
-    infile.close();                 // Close the file
+    infile.close();
 }
 
-void ReadManager(vector<Person*>& obj) {
-    ifstream infile("Manager.txt"); // Open the file "Laborer.txt" for reading
-    if (infile.is_open()) {         // Check if the file is successfully opened
+void ReadManager(vector<Person*>& obj) {        
+    ifstream infile("Manager.txt"); 
+    if (infile.is_open()) {
         string line;
         Manager* lab = new Manager();
-        while (getline(infile, line)) {     // Read each line in the file
-            stringstream ss(line);          // Create a stringstream from the line
+        while (getline(infile, line)) {
+            stringstream ss(line);
             string field, value;
-            getline(ss, field, ':');        // Parse the field name
-            getline(ss, value);              // Parse the field value
+            getline(ss, field, ':');
+            getline(ss, value);
 
             if (field == "Name") {
                 lab->SetName(value);
@@ -166,24 +166,24 @@ void ReadManager(vector<Person*>& obj) {
             }
         }
         obj.push_back(lab);
-        infile.close();                 // Close the file
+        infile.close();
     } else {
         cout << "Unable to open file Manager.txt" << endl;
     }
 
-    infile.close();                 // Close the file
+    infile.close();
 }
 
 void ReadOwner(vector<Person*>& obj) {
-    ifstream infile("Owner.txt"); // Open the file "Laborer.txt" for reading
-    if (infile.is_open()) {         // Check if the file is successfully opened
+    ifstream infile("Owner.txt"); 
+    if (infile.is_open()) {
         string line;
         Owner* lab = new Owner();
-        while (getline(infile, line)) {     // Read each line in the file
-            stringstream ss(line);          // Create a stringstream from the line
+        while (getline(infile, line)) {
+            stringstream ss(line);
             string field, value;
-            getline(ss, field, ':');        // Parse the field name
-            getline(ss, value);              // Parse the field value
+            getline(ss, field, ':');
+            getline(ss, value);
 
             if (field == "Name") {
                 lab->SetName(value);
@@ -200,11 +200,11 @@ void ReadOwner(vector<Person*>& obj) {
             } 
         }
         obj.push_back(lab);
-        infile.close();                 // Close the file
+        infile.close(); 
     } else {
         cout << "Unable to open file Owner.txt" << endl;
     }
 
-    infile.close();                 // Close the file
+    infile.close();
 }
 
