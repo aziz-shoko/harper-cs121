@@ -13,13 +13,16 @@ void Search(vector<Person*>& obj, string);
 void Fire(vector<Person*>& obj, string);
 void Write(vector<Person*>& obj);
 void ReadLaborer(vector<Person*>& obj);
+void ReadManager(vector<Person*>& obj);
+void ReadOwner(vector<Person*>& obj);
 
 int main() {
     vector<Person*> record;                                     // Create a vector to store class pointers (we will be storing instances of class inside this vector)
     int userInput = 0;
 
     ReadLaborer(record);
-
+    ReadManager(record);
+    ReadOwner(record);
 
     while (userInput != 8) {
         // While loop to display the user option menus
@@ -81,8 +84,6 @@ void Search(vector<Person*>& obj, string name) {
     for (int i = 0; i < len; i++) {
         if (obj[i]->GetName() == name) {
             obj[i]->Display(cout);
-        } else {
-            cout << "Name doesn't exist!";
         }
     }
 }
@@ -94,7 +95,6 @@ void Fire(vector<Person*>& obj, string name) {
             obj.erase(it);
             cout << "\nFired: " << name << endl;
         } else {
-            cout << "\nName not found" << endl;
             ++it;
         }
     }
@@ -135,8 +135,76 @@ void ReadLaborer(vector<Person*>& obj) {
         cout << "Unable to open file Laborer.txt" << endl;
     }
 
-        infile.close();                 // Close the file
+    infile.close();                 // Close the file
 }
 
+void ReadManager(vector<Person*>& obj) {
+    ifstream infile("Manager.txt"); // Open the file "Laborer.txt" for reading
+    if (infile.is_open()) {         // Check if the file is successfully opened
+        string line;
+        Manager* lab = new Manager();
+        while (getline(infile, line)) {     // Read each line in the file
+            stringstream ss(line);          // Create a stringstream from the line
+            string field, value;
+            getline(ss, field, ':');        // Parse the field name
+            getline(ss, value);              // Parse the field value
 
+            if (field == "Name") {
+                lab->SetName(value);
+            } else if (field == "SSN") {
+                lab->SetSS(value);
+            } else if (field == "Birthdate") {
+                lab->SetBirthdate(value);
+            } else if (field == "Job Type") {
+                lab->SetType();
+            } else if (field == "Department") {
+                lab->SetDepartment(value);
+            } else if (field == "ID") {
+                lab->SetID(value);
+            } else if (field == "Salary") {
+                lab->SetPay(value);
+            }
+        }
+        obj.push_back(lab);
+        infile.close();                 // Close the file
+    } else {
+        cout << "Unable to open file Manager.txt" << endl;
+    }
+
+    infile.close();                 // Close the file
+}
+
+void ReadOwner(vector<Person*>& obj) {
+    ifstream infile("Owner.txt"); // Open the file "Laborer.txt" for reading
+    if (infile.is_open()) {         // Check if the file is successfully opened
+        string line;
+        Owner* lab = new Owner();
+        while (getline(infile, line)) {     // Read each line in the file
+            stringstream ss(line);          // Create a stringstream from the line
+            string field, value;
+            getline(ss, field, ':');        // Parse the field name
+            getline(ss, value);              // Parse the field value
+
+            if (field == "Name") {
+                lab->SetName(value);
+            } else if (field == "SSN") {
+                lab->SetSS(value);
+            } else if (field == "Birthdate") {
+                lab->SetBirthdate(value);
+            } else if (field == "Job Type") {
+                lab->SetType();
+            } else if (field == "Percent Owned") {
+                lab->SetOwned(value);
+            } else if (field == "Date of Ownership") {
+                lab->SetDate(value);
+            } 
+        }
+        obj.push_back(lab);
+        infile.close();                 // Close the file
+    } else {
+        cout << "Unable to open file Owner.txt" << endl;
+    }
+
+    infile.close();                 // Close the file
+}
 

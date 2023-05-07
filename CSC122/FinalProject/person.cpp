@@ -53,14 +53,14 @@ void Laborer::SetType() {
 }
 
 void Laborer::Display(ostream& out) {                           // display function
-    out << "\nName: " << GetName() << endl;
-    out << "SSN: " << GetSS() << endl;
-    out << "Birthdate: " << GetBirthdate() << endl;
-    out << "Job Type: " << GetType() << endl;
-    out << "Job Title: " << GetJob() << endl;
-    out << "ID: " << GetID() << endl;
-    out << "Hourly pay: " << GetPay() << endl;
-    out << "Hours Worked: " << GetHours() << endl;
+    out << "\nName:" << GetName() << endl;
+    out << "SSN:" << GetSS() << endl;
+    out << "Birthdate:" << GetBirthdate() << endl;
+    out << "Job Type:" << GetType() << endl;
+    out << "Job Title:" << GetJob() << endl;
+    out << "ID:" << GetID() << endl;
+    out << "Hourly pay:" << GetPay() << endl;
+    out << "Hours Worked:" << GetHours() << endl;
 }
 
 void Laborer::Write() {
@@ -139,13 +139,13 @@ void Manager::SetType() {
 }
 
 void Manager::Display(ostream& out) {                               // display method for Manager
-    out << "\nName: " << GetName() << endl;
-    out << "SSN: " << GetSS() << endl;
-    out << "Birthdate: " << GetBirthdate() << endl;
-    out << "Job Type: " << GetType() << endl;
-    out << "Department: " << GetDepartment() << endl;
-    out << "ID: " << GetID() << endl;
-    out << "Salary: " << GetSalary() << endl;
+    out << "\nName:" << GetName() << endl;
+    out << "SSN:" << GetSS() << endl;
+    out << "Birthdate:" << GetBirthdate() << endl;
+    out << "Job Type:" << GetType() << endl;
+    out << "Department:" << GetDepartment() << endl;
+    out << "ID:" << GetID() << endl;
+    out << "Salary:" << GetSalary() << endl;
 }
 
 void Manager::Write() {
@@ -200,7 +200,7 @@ void Manager::Input() {                                             // Input met
 
 Owner::Owner() {;}
 
-void Owner::SetOwned(double x) {
+void Owner::SetOwned(string x) {
     percentOwned = x;
 }
 
@@ -213,12 +213,12 @@ void Owner::SetType() {
 }
 
 void Owner::Display(ostream& out) {                             // Display method for owner
-    out << "\nName: " << GetName() << endl;
-    out << "SSN: " << GetSS() << endl;
-    out << "Birthdate: " << GetBirthdate() << endl;
-    out << "Job Type: " << GetType() << endl;
-    out << "Percent Owned: " << GetOwned() << endl;
-    out << "Date of Ownership: " << GetDateOwned() << endl;
+    out << "\nName:" << GetName() << endl;
+    out << "SSN:" << GetSS() << endl;
+    out << "Birthdate:" << GetBirthdate() << endl;
+    out << "Job Type:" << GetType() << endl;
+    out << "Percent Owned:" << GetOwned() << endl;
+    out << "Date of Ownership:" << GetDateOwned() << endl;
 }
 
 void Owner::Write() {
@@ -236,13 +236,13 @@ string Owner::GetDateOwned(){
     return ownershipDate;
 }
 
-double Owner::GetOwned() {
+string Owner::GetOwned() {
     return percentOwned;
 }
 
 void Owner::Input() {                                           // Input method for Owner
     string input1, input2, input3, input4;
-    double c;
+    string c;
 
     SetType();
     cout << "\nEnter Name: ";

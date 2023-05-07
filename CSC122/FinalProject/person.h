@@ -80,21 +80,21 @@ class Manager : public Person {                     // derived class Manager and
 
 class Owner : public Person {                       // derived class Owner and its methods
     private: 
-        double percentOwned;
+        string percentOwned;
         string ownershipDate;
 
     public: 
         Owner();
         void Input();
         void SetType();
-        void SetOwned(double);
+        void SetOwned(string);
         void SetDate(string);
         void Display(ostream& out);
         void Write();
         void Read();
 
         string GetType();
-        double GetOwned();
+        string GetOwned();
         string GetDateOwned();
 };
 #endif
