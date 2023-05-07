@@ -106,27 +106,27 @@ void Average(vector<Person*>& obj) {
 
 }
 
-void ReadLaborer(vector<Person*>& obj) {
-    ifstream reader("Laborer.txt");
-    if (reader.is_open()) {
-        string data;
-        Laborer* worker = new Laborer();
+void ReadLaborer(vector<Person*>& obj) {                        // Function for reading the values from the laborer.txt
+    ifstream reader("Laborer.txt");                             // opens file Laborer.txt
+    if (reader.is_open()) {                                     // condition for opening the file
+        string data;                                            // string data for putting the read lines into the variable data  
+        Laborer* worker = new Laborer();                        // allocating new instances for any loaded in worker
 
-        while (getline(reader, data)) {
-            if (data.empty()) {
-                if (worker->GetName() != "") {
-                    obj.push_back(worker);
-                    worker = new Laborer();
+        while (getline(reader, data)) {                         // while statement for reading all the lines Laborer.txt
+            if (data.empty()) {                                 // condition for checking to see if the line is empty (if the line is empty, it means that the data for one person might be complete)
+                if (worker->GetName() != "") {                  // this checks to see if the previous created instance is populated with some name
+                    obj.push_back(worker);                      // if it is populated, then it is pushed into the vector record (obj in this function)
+                    worker = new Laborer();                     // once it is pushed, a new instance is created for the next person's data
                 }
-            } else {
-                stringstream ss(data);
-                string key, value;
-                getline(ss, key, ':');
-                getline(ss, value);
+            } else {                                            // if the data is not an empty line, then the parsing the data starts
+                stringstream ss(data);                          // use stringstreams to help with parsing data
+                string key, value;                              // the data is stored in key - value pairs, so I decided to go use key value variable names here too
+                getline(ss, key, ':');                          // anything before the : gets stored as a key in key
+                getline(ss, value);                             // the rest is stored as a value in value
                 
-                if (key == "Name") {
-                    worker->SetName(value);
-                } else if (key == "SSN") {
+                if (key == "Name") {                            // conditions for checking to see if key matches Name
+                    worker->SetName(value);                     // if it does match it, then call the methods for the temporary worker class and set the values for it (here it sets the Name)
+                } else if (key == "SSN") {                      // the rest of the if conditions is doing the same thing but for other parameters
                     worker->SetSS(value);
                 } else if (key == "Birthdate") {
                     worker->SetBirthdate(value);
@@ -144,17 +144,17 @@ void ReadLaborer(vector<Person*>& obj) {
             }
         }
         
-        if (worker->GetName() != "") {
+        if (worker->GetName() != "") {                          // condition to make sure the data populated worker gets pushed into the record vector (in this case its obj but passed in by reference under different name)
             obj.push_back(worker);
         } else {
-            delete worker;  // Delete the unused Laborer object
+            delete worker;                                      // cleanup the worker 
         }
 
         reader.close();
     } else {
         cout << "Unable to open file Laborer.txt" << endl;
     }
-}
+}                                                               // the rest of the functions below is the same thing as the one above except it is for the job type specific classes
 
 
 void ReadManager(vector<Person*>& obj) {
@@ -242,7 +242,7 @@ void ReadOwner(vector<Person*>& obj) {
         if (worker->GetName() != "") {
             obj.push_back(worker);
         } else {
-            delete worker;  // Delete the unused Owner object
+            delete worker;
         }
 
         reader.close();
