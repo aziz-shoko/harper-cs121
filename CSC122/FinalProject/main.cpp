@@ -106,43 +106,57 @@ void Average(vector<Person*>& obj) {
 
 }
 
-void ReadLaborer(vector<Person*>& obj) {                        // Have three read functions that read off of a file that is either a laborer, manager, or owner. There is one for each
-    ifstream infile("Laborer.txt");                             // Opens the laborer.txt file
-    if (infile.is_open()) {                                     // condition for making sure the file exists
-        string line;                                            // create a placeholder string vale
-        Laborer* lab = new Laborer();                           // create a temp instance to store the read info to and push it back to record vector
-        while (getline(infile, line)) {                         // while loop for reading the lines from the file
-            stringstream ss(line);                              // string stream for parsing purposes
-            string field, value;                                // placeholder strings for the keys and values
-            getline(ss, field, ':');                            // separate the key based on the : delimeter and store it in key
-            getline(ss, value);                                 // store the rest in value                                     
+void ReadLaborer(vector<Person*>& obj) {
+    ifstream infile("Laborer.txt");
+    if (infile.is_open()) {
+        string line;
+        Laborer* lab = new Laborer();
 
-            if (field == "Name") {                              // below are the conditions for setting the read values to the values of the laborer class instance
-                lab->SetName(value);
-            } else if (field == "SSN") {
-                lab->SetSS(value);
-            } else if (field == "Birthdate") {
-                lab->SetBirthdate(value);
-            } else if (field == "Job Type") {
-                lab->SetType();
-            } else if (field == "Job Title") {
-                lab->SetJob(value);
-            } else if (field == "ID") {
-                lab->SetID(value);
-            } else if (field == "Hourly pay") {
-                lab->SetPay(value);
-            } else if (field == "Hours Worked") {
-                lab->SetHours(value);
+        while (getline(infile, line)) {
+            if (line.empty()) {
+                if (lab->GetName() != "") {
+                    obj.push_back(lab);
+                    lab = new Laborer();  // Create a new Laborer object for the next entry
+                }
+            } else {
+                stringstream ss(line);
+                string field, value;
+                getline(ss, field, ':');
+                getline(ss, value);
+                
+                if (field == "Name") {
+                    lab->SetName(value);
+                } else if (field == "SSN") {
+                    lab->SetSS(value);
+                } else if (field == "Birthdate") {
+                    lab->SetBirthdate(value);
+                } else if (field == "Job Type") {
+                    lab->SetType();
+                } else if (field == "Job Title") {
+                    lab->SetJob(value);
+                } else if (field == "ID") {
+                    lab->SetID(value);
+                } else if (field == "Hourly pay") {
+                    lab->SetPay(value);
+                } else if (field == "Hours Worked") {
+                    lab->SetHours(value);
+                }
             }
         }
-        obj.push_back(lab);                                     // once the values are set, it is pushed back into the record vector
-        infile.close();                                             // the other functions below are the same exact thing but for the other job specific types
+        
+        if (lab->GetName() != "") {
+            obj.push_back(lab);
+        } else {
+            delete lab;  // Delete the unused Laborer object
+        }
+
+        infile.close();
     } else {
         cout << "Unable to open file Laborer.txt" << endl;
     }
-
-    infile.close();
 }
+
+
 
 void ReadManager(vector<Person*>& obj) {        
     ifstream infile("Manager.txt"); 
