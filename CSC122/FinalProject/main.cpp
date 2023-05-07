@@ -107,124 +107,147 @@ void Average(vector<Person*>& obj) {
 }
 
 void ReadLaborer(vector<Person*>& obj) {
-    ifstream infile("Laborer.txt");
-    if (infile.is_open()) {
-        string line;
-        Laborer* lab = new Laborer();
+    ifstream reader("Laborer.txt");
+    if (reader.is_open()) {
+        string data;
+        Laborer* worker = new Laborer();
 
-        while (getline(infile, line)) {
-            if (line.empty()) {
-                if (lab->GetName() != "") {
-                    obj.push_back(lab);
-                    lab = new Laborer();  // Create a new Laborer object for the next entry
+        while (getline(reader, data)) {
+            if (data.empty()) {
+                if (worker->GetName() != "") {
+                    obj.push_back(worker);
+                    worker = new Laborer();
                 }
             } else {
-                stringstream ss(line);
-                string field, value;
-                getline(ss, field, ':');
+                stringstream ss(data);
+                string key, value;
+                getline(ss, key, ':');
                 getline(ss, value);
                 
-                if (field == "Name") {
-                    lab->SetName(value);
-                } else if (field == "SSN") {
-                    lab->SetSS(value);
-                } else if (field == "Birthdate") {
-                    lab->SetBirthdate(value);
-                } else if (field == "Job Type") {
-                    lab->SetType();
-                } else if (field == "Job Title") {
-                    lab->SetJob(value);
-                } else if (field == "ID") {
-                    lab->SetID(value);
-                } else if (field == "Hourly pay") {
-                    lab->SetPay(value);
-                } else if (field == "Hours Worked") {
-                    lab->SetHours(value);
+                if (key == "Name") {
+                    worker->SetName(value);
+                } else if (key == "SSN") {
+                    worker->SetSS(value);
+                } else if (key == "Birthdate") {
+                    worker->SetBirthdate(value);
+                } else if (key == "Job Type") {
+                    worker->SetType();
+                } else if (key == "Job Title") {
+                    worker->SetJob(value);
+                } else if (key == "ID") {
+                    worker->SetID(value);
+                } else if (key == "Hourly pay") {
+                    worker->SetPay(value);
+                } else if (key == "Hours Worked") {
+                    worker->SetHours(value);
                 }
             }
         }
         
-        if (lab->GetName() != "") {
-            obj.push_back(lab);
+        if (worker->GetName() != "") {
+            obj.push_back(worker);
         } else {
-            delete lab;  // Delete the unused Laborer object
+            delete worker;  // Delete the unused Laborer object
         }
 
-        infile.close();
+        reader.close();
     } else {
         cout << "Unable to open file Laborer.txt" << endl;
     }
 }
 
 
+void ReadManager(vector<Person*>& obj) {
+    ifstream reader("Manager.txt");
+    if (reader.is_open()) {
+        string data;
+        Manager* worker = new Manager();
 
-void ReadManager(vector<Person*>& obj) {        
-    ifstream infile("Manager.txt"); 
-    if (infile.is_open()) {
-        string line;
-        Manager* lab = new Manager();
-        while (getline(infile, line)) {
-            stringstream ss(line);
-            string field, value;
-            getline(ss, field, ':');
-            getline(ss, value);
-
-            if (field == "Name") {
-                lab->SetName(value);
-            } else if (field == "SSN") {
-                lab->SetSS(value);
-            } else if (field == "Birthdate") {
-                lab->SetBirthdate(value);
-            } else if (field == "Job Type") {
-                lab->SetType();
-            } else if (field == "Department") {
-                lab->SetDepartment(value);
-            } else if (field == "ID") {
-                lab->SetID(value);
-            } else if (field == "Salary") {
-                lab->SetPay(value);
+        while (getline(reader, data)) {
+            if (data.empty()) {
+                if (worker->GetName() != "") {
+                    obj.push_back(worker);
+                    worker = new Manager();
+                }
+            } else {
+                stringstream ss(data);
+                string key, value;
+                getline(ss, key, ':');
+                getline(ss, value);
+                
+                if (key == "Name") {
+                    worker->SetName(value);
+                } else if (key == "SSN") {
+                    worker->SetSS(value);
+                } else if (key == "Birthdate") {
+                    worker->SetBirthdate(value);
+                } else if (key == "Job Type") {
+                    worker->SetType();
+                } else if (key == "Department") {
+                    worker->SetDepartment(value);
+                } else if (key == "ID") {
+                    worker->SetID(value);
+                } else if (key == "Salary") {
+                    worker->SetPay(value);
+                }
             }
         }
-        obj.push_back(lab);
-        infile.close();
+        
+        if (worker->GetName() != "") {
+            obj.push_back(worker);
+        } else {
+            delete worker;
+        }
+
+        reader.close();
     } else {
         cout << "Unable to open file Manager.txt" << endl;
     }
-
-    infile.close();
 }
 
 void ReadOwner(vector<Person*>& obj) {
-    ifstream infile("Owner.txt"); 
-    if (infile.is_open()) {
-        string line;
-        Owner* lab = new Owner();
-        while (getline(infile, line)) {
-            stringstream ss(line);
-            string field, value;
-            getline(ss, field, ':');
-            getline(ss, value);
+    ifstream reader("Owner.txt");
+    if (reader.is_open()) {
+        string data;
+        Owner* worker = new Owner();
 
-            if (field == "Name") {
-                lab->SetName(value);
-            } else if (field == "SSN") {
-                lab->SetSS(value);
-            } else if (field == "Birthdate") {
-                lab->SetBirthdate(value);
-            } else if (field == "Job Type") {
-                lab->SetType();
-            } else if (field == "Percent Owned") {
-                lab->SetOwned(value);
-            } else if (field == "Date of Ownership") {
-                lab->SetDate(value);
-            } 
+        while (getline(reader, data)) {
+            if (data.empty()) {
+                if (worker->GetName() != "") {
+                    obj.push_back(worker);
+                    worker = new Owner();
+                }
+            } else {
+                stringstream ss(data);
+                string key, value;
+                getline(ss, key, ':');
+                getline(ss, value);
+                
+                if (key == "Name") {
+                    worker->SetName(value);
+                } else if (key == "SSN") {
+                    worker->SetSS(value);
+                } else if (key == "Birthdate") {
+                    worker->SetBirthdate(value);
+                } else if (key == "Job Type") {
+                    worker->SetType();
+                } else if (key == "Percent Owned") {
+                    worker->SetOwned(value);
+                } else if (key == "Date of Ownership") {
+                    worker->SetDate(value);
+                } 
+            }
         }
-        obj.push_back(lab);
-        infile.close(); 
+        
+        if (worker->GetName() != "") {
+            obj.push_back(worker);
+        } else {
+            delete worker;  // Delete the unused Owner object
+        }
+
+        reader.close();
     } else {
         cout << "Unable to open file Owner.txt" << endl;
     }
-
-    infile.close();
 }
 
