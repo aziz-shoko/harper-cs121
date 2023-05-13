@@ -11,27 +11,34 @@ double Average(set<int>&);
 
 int main() {
     set<int> set1, set2, set3;
-
-    int userInput = ReadValue<int> ("\n\t1. Enter Set One\n\t2. Enter Set Two\n\t3. Enter Set Three\n\t4. Display Union\n\t5. Display Intersection\n\t6. Display Difference\n\t7. Quit\n\nChoose Option: ");
+    int userInput;
 
     while (userInput != 7) {
+        userInput = ReadValue<int> ("\n\t1. Enter Set One\n\t2. Enter Set Two\n\t3. Enter Set Three\n\t4. Display Union\n\t5. Display Intersection\n\t6. Display Difference\n\t7. Quit\n\nChoose Option: ");
+
         if (userInput == 1) {
-            int alpha;
-            cout << "Enter first set: ";
-            while (cin >> alpha) {
+            int size;
+            cout << "Enter how many numbers to add: ";
+            cin >> size;
+            for (int i = 0; i < size; i++) {
+                int alpha = ReadValue<int> ("Enter Number: ");
                 set1.insert(alpha);
             }
         } else if (userInput == 2) {
-            int alpha;
-            cout << "Enter second set: ";
-            while (cin >> alpha) {
-                set2.insert(alpha);
+            int size;
+            cout << "Enter how many numbers to add: ";
+            cin >> size;
+            for (int i = 0; i < size; i++) {
+                int alpha = ReadValue<int> ("Enter Number: ");
+                set1.insert(alpha);
             }
         } else if (userInput == 3) {
-            int alpha;
-            cout << "Enter third set: ";
-            while (cin >> alpha) {
-                set3.insert(alpha);
+            int size;
+            cout << "Enter how many numbers to add: ";
+            cin >> size;
+            for (int i = 0; i < size; i++) {
+                int alpha = ReadValue<int> ("Enter Number: ");
+                set1.insert(alpha);
             }
         } else if (userInput == 4) {
             DisplayUnion(set1, set2, set3);
