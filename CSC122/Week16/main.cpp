@@ -3,6 +3,11 @@
 #include "input.h"
 using namespace std;
 
+void DisplayUnion(set<int>&, set<int>&, set<int>&);
+void DisplayIntersection(set<int>&, set<int>&, set<int>&);
+void DisplayDifference(set<int>&, set<int>&, set<int>&);
+double Average(set<int>&);
+
 int main() {
     set<int> set1, set2, set3;
 
@@ -27,7 +32,35 @@ int main() {
             while (cin >> alpha) {
                 set3.insert(alpha);
             }
+        } else if (userInput == 4) {
+            DisplayUnion(set1, set2, set3);
+
+        } else if (userInput == 5) {
+            DisplayIntersection(set1, set2, set3);
+        } else if (userInput == 6) {
+            DisplayDifference(set1, set2, set3); 
         }
     }
 
+}
+
+void DisplayUnion(set<int>& set1, set<int>& set2, set<int>& set3) {
+    set<int> unionSet = set1;
+    unionSet.insert(set2.begin(), set2.end());
+    unionSet.insert(set3.begin(), set3.end());
+
+    cout << "Union of three sets: ";
+    for (int i : unionSet) {
+        cout << i << " ";
+    }
+    cout << "\nAverage: " << Average(unionSet);
+}
+
+double Average(set<int>& listSet) {
+    double total = 0;
+    for (int poo : listSet) {
+        total += poo;
+    }
+
+    return total/listSet.size();
 }
