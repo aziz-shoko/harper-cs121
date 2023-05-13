@@ -11,7 +11,7 @@ double Average(set<int>&);
 
 int main() {
     set<int> set1, set2, set3;                                                  // declare sets
-    int userInput;
+    int userInput = 0;                                                          // initialize userInput to avoid undefined behavior
 
     while (userInput != 7) {                                                    // while loop menu
         userInput = ReadValue<int> ("\n\t1. Enter Set One\n\t2. Enter Set Two\n\t3. Enter Set Three\n\t4. Display Union\n\t5. Display Intersection\n\t6. Display Difference\n\t7. Quit\n\nChoose Option: ");
@@ -30,7 +30,7 @@ int main() {
             cin >> size;
             for (int i = 0; i < size; i++) {
                 int alpha = ReadValue<int> ("Enter Number: ");
-                set1.insert(alpha);
+                set2.insert(alpha); // Use set2 instead of set1
             }
         } else if (userInput == 3) {
             int size;
@@ -38,7 +38,7 @@ int main() {
             cin >> size;
             for (int i = 0; i < size; i++) {
                 int alpha = ReadValue<int> ("Enter Number: ");
-                set1.insert(alpha);
+                set3.insert(alpha); // Use set3 instead of set1
             }
         } else if (userInput == 4) {
             DisplayUnion(set1, set2, set3);
@@ -49,7 +49,9 @@ int main() {
         }
     }
 
+    return 0;
 }
+
 
 void DisplayUnion(set<int>& set1, set<int>& set2, set<int>& set3) {
     set<int> unionSet = set1;                                                           // make duplicate set
