@@ -68,6 +68,17 @@ void DisplayIntersection(set<int>& set1, set<int>& set2, set<int>& set3) {
     cout << "\nAverage: " << Average(intersectionSet);
 }
 
+void DisplayDifference(set<int>& set1, set<int>& set2, set<int>& set3) {
+    set<int> differenceSet;
+    set_difference(set1.begin(), set1.end(), set2.begin(), set2.end(), inserter(differenceSet, differenceSet.begin()));
+    set_difference(differenceSet.begin(), differenceSet.end(), set3.begin(), set3.end(), inserter(differenceSet, differenceSet.begin()));
+
+    cout << "Union of three sets: ";
+    for (int i : differenceSet) {
+        cout << i << " ";
+    }
+    cout << "\nAverage: " << Average(differenceSet);
+}
 
 double Average(set<int>& listSet) {
     double total = 0;
