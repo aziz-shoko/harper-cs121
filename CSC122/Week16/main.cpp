@@ -56,6 +56,19 @@ void DisplayUnion(set<int>& set1, set<int>& set2, set<int>& set3) {
     cout << "\nAverage: " << Average(unionSet);
 }
 
+void DisplayIntersection(set<int>& set1, set<int>& set2, set<int>& set3) {
+    set<int> intersectionSet;
+    set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(), inserter(intersectionSet, intersectionSet.begin()));
+    set_intersection(intersectionSet.begin(), intersectionSet.end(), set3.begin(), set3.end(), inserter(intersectionSet, intersectionSet.begin()));
+
+    cout << "Union of three sets: ";
+    for (int i : intersectionSet) {
+        cout << i << " ";
+    }
+    cout << "\nAverage: " << Average(intersectionSet);
+}
+
+
 double Average(set<int>& listSet) {
     double total = 0;
     for (int poo : listSet) {
