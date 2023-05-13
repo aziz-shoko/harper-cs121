@@ -61,7 +61,7 @@ void DisplayUnion(set<int>& set1, set<int>& set2, set<int>& set3) {
     for (int i : unionSet) {
         cout << i << " ";
     }
-    cout << "\nAverage: " << Average(unionSet);
+    cout << "\nAverage: " << Average(unionSet) << endl;
 }
 
 void DisplayIntersection(set<int>& set1, set<int>& set2, set<int>& set3) {
@@ -69,11 +69,11 @@ void DisplayIntersection(set<int>& set1, set<int>& set2, set<int>& set3) {
     set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(), inserter(intersectionSet, intersectionSet.begin()));
     set_intersection(intersectionSet.begin(), intersectionSet.end(), set3.begin(), set3.end(), inserter(intersectionSet, intersectionSet.begin()));
 
-    cout << "Union of three sets: ";
+    cout << "Intersection of three sets: ";
     for (int i : intersectionSet) {
         cout << i << " ";
     }
-    cout << "\nAverage: " << Average(intersectionSet);
+    cout << "\nAverage: " << Average(intersectionSet) << endl;
 }
 
 void DisplayDifference(set<int>& set1, set<int>& set2, set<int>& set3) {
@@ -81,11 +81,11 @@ void DisplayDifference(set<int>& set1, set<int>& set2, set<int>& set3) {
     set_difference(set1.begin(), set1.end(), set2.begin(), set2.end(), inserter(differenceSet, differenceSet.begin()));
     set_difference(differenceSet.begin(), differenceSet.end(), set3.begin(), set3.end(), inserter(differenceSet, differenceSet.begin()));
 
-    cout << "Union of three sets: ";
+    cout << "Difference of three sets: ";
     for (int i : differenceSet) {
         cout << i << " ";
     }
-    cout << "\nAverage: " << Average(differenceSet);
+    cout << "\nAverage: " << Average(differenceSet) << endl;
 }
 
 double Average(set<int>& listSet) {
