@@ -1,5 +1,6 @@
 #include <iostream>
 #include <set>
+#include <algorithm>
 #include "input.h"
 using namespace std;
 
@@ -16,19 +17,19 @@ int main() {
     while (userInput != 7) {
         if (userInput == 1) {
             int alpha;
-            cout << "Enter first set (separate by space): ";
+            cout << "Enter first set: ";
             while (cin >> alpha) {
                 set1.insert(alpha);
             }
         } else if (userInput == 2) {
             int alpha;
-            cout << "Enter second set (separate by space): ";
+            cout << "Enter second set: ";
             while (cin >> alpha) {
                 set2.insert(alpha);
             }
         } else if (userInput == 3) {
             int alpha;
-            cout << "Enter third set (separate by space): ";
+            cout << "Enter third set: ";
             while (cin >> alpha) {
                 set3.insert(alpha);
             }
